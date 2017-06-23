@@ -18,7 +18,9 @@
         <activity android:name=".MainActivity" />
         <activity android:name=".factors.FactorsActivity" />
         <activity android:name=".education.FormalEducationActivity" />
-        <activity android:name=".experience.ExperienceActivity"></activity>
+        <activity android:name=".experience.ExperienceActivity" />
+        <activity android:name=".results.SummaryActivity" />
+        <activity android:name=".results.ResultsActivity"></activity>
     </application>
 
 </manifest>

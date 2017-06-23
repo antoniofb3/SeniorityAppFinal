@@ -17,6 +17,7 @@ public class FormalEducationActivity extends AppCompatActivity {
 
     private String[] education = {"Incomplete Terciary Education", "Incomplete Bachelor", "Bachelor", "Graduated + Especializated", "Master"};
     private ListView lvEducation;
+    private int score=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +41,7 @@ public class FormalEducationActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 if (position == 0){
                     startActivity(new Intent(FormalEducationActivity.this,ExperienceActivity.class));
+                    score = 1;
                 }
             }
         });

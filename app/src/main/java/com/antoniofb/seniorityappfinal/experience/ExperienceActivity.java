@@ -1,5 +1,6 @@
 package com.antoniofb.seniorityappfinal.experience;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -9,11 +10,13 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.antoniofb.seniorityappfinal.R;
+import com.antoniofb.seniorityappfinal.results.SummaryActivity;
 
 public class ExperienceActivity extends AppCompatActivity {
 
     private String[] experience = {"Without Experience", "1 or more year of experience", "2 or more years of experience", "3 or more years of experience", "4 or more years of experience"};
     private ListView lvExperience;
+    private int score;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +39,8 @@ public class ExperienceActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 if (position == 0){
-                    startActivity();
+                    startActivity(new Intent(ExperienceActivity.this,SummaryActivity.class));
+                    score = 0;
                 }
             }
         });
