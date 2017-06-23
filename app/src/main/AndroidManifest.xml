@@ -16,7 +16,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".MainActivity" />
-        <activity android:name=".factors.FactorsActivity"></activity>
+        <activity android:name=".factors.FactorsActivity" />
+        <activity android:name=".education.FormalEducationActivity" />
+        <activity android:name=".experience.ExperienceActivity"></activity>
     </application>
 
 </manifest>
