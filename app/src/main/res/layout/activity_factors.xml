@@ -11,23 +11,39 @@
     android:orientation="vertical"
     tools:context="com.antoniofb.seniorityappfinal.factors.FactorsActivity">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/employeeImageView"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@drawable/person"/>
+
     <TextView
         android:id="@+id/tvEmployeeName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/employeeImageView"
         android:textAppearance="?android:textAppearanceLarge"/>
 
     <TextView
         android:id="@+id/tvEmployeeJob"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@id/tvEmployeeName"
+        android:layout_toRightOf="@id/employeeImageView"
         android:textAppearance="?android:textAppearanceLarge"/>
 
     <TextView
         android:id="@+id/tvEmployeeSeniority"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@id/tvEmployeeJob"
+        android:layout_toRightOf="@id/employeeImageView"
         android:textAppearance="?android:textAppearanceLarge"/>
+    </RelativeLayout>
 
     <ListView
         android:id="@+id/lvFactorsList"
