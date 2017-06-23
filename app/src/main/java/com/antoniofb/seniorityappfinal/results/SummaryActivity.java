@@ -5,13 +5,17 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListView;
 
 import com.antoniofb.seniorityappfinal.R;
 
 public class SummaryActivity extends AppCompatActivity {
 
     private Button btConfirm;
+    private String[] results = {"Formal Education", "Experience", "Management", "Communication", "Technical Skills", "Leadership Experience", "Empowerment"};
+    private ListView lvResults;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +32,9 @@ public class SummaryActivity extends AppCompatActivity {
     }
 
     public void showSummaryResults(){
+        lvResults = (ListView) findViewById(R.id.lvResultsList);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,R.layout.activity_listview,results);
+        lvResults.setAdapter(adapter);
     }
 
     public void registerResults(){

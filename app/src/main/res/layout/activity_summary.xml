@@ -18,6 +18,11 @@
         android:textAppearance="?android:textAppearanceMedium"
         android:text="This is the Summary Results for this employee: "/>
 
+    <ListView
+        android:id="@+id/lvResultsList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></ListView>
+
     <Button
         android:id="@+id/btnConfirmSummary"
         android:layout_width="wrap_content"
