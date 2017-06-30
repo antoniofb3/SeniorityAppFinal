@@ -20,6 +20,7 @@ public class ExperienceActivity extends AppCompatActivity {
     private String[] experience = {"Without Experience", "1 or more year of experience", "2 or more years of experience", "3 or more years of experience", "4 or more years of experience"};
     private ListView lvExperience;
     private int experienceScore = 0, educationScore = 0, experiencePercentage = 20;
+    private int[] scores;
     private Intent intent;
 
     @Override
@@ -46,7 +47,8 @@ public class ExperienceActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 if (position == 0){
                     experienceScore = 0 * experiencePercentage;
-                    intent.putExtra("WE", experienceScore);
+                    scores[1] = experienceScore;
+                    intent.putExtra("WOE", scores);
                     startActivity(intent);
                     //startActivity(new Intent(ExperienceActivity.this,SummaryActivity.class));
                 }
@@ -56,7 +58,7 @@ public class ExperienceActivity extends AppCompatActivity {
 
     public void acumulateScores(){
         Bundle bundle = getIntent().getExtras();
-        educationScore = bundle.getInt("ITE");
-        Log.d("TAG", "Score from education ->>>> Item: " + educationScore + " selected");
+        scores = bundle.getIntArray("ITE");
+        Log.d("TAG", "Score from education ->>>>: " + scores[0] + " lalala");
     }
 }

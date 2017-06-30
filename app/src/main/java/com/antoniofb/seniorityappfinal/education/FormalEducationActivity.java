@@ -18,6 +18,7 @@ public class FormalEducationActivity extends AppCompatActivity {
     private String[] education = {"Incomplete Terciary Education", "Incomplete Bachelor", "Bachelor", "Graduated + Especializated", "Master"};
     private ListView lvEducation;
     private int educationScore = 0, educationPercentage = 5;
+    private int[] scores = new int[7];
     private Intent intent;
 
     @Override
@@ -43,7 +44,8 @@ public class FormalEducationActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 if (position == 0){
                     educationScore = 1 * educationPercentage;
-                    intent.putExtra("ITE", educationScore);
+                    scores[0] = educationScore;//always position 0
+                    intent.putExtra("ITE", scores);
                     startActivity(intent);
                     //startActivity(new Intent(FormalEducationActivity.this,ExperienceActivity.class));
                 }
