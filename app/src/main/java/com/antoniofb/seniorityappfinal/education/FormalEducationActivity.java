@@ -17,7 +17,8 @@ public class FormalEducationActivity extends AppCompatActivity {
 
     private String[] education = {"Incomplete Terciary Education", "Incomplete Bachelor", "Bachelor", "Graduated + Especializated", "Master"};
     private ListView lvEducation;
-    private int score=0;
+    private int educationScore = 0, educationPercentage = 5;
+    private Intent intent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,12 +37,15 @@ public class FormalEducationActivity extends AppCompatActivity {
         lvEducation = (ListView) findViewById(R.id.lvFormalEducationList);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,R.layout.activity_listview,education);
         lvEducation.setAdapter(adapter);//me salio el mismo error de null el adapter, lo arregle poniendo bien el findViewById
+        intent = new Intent(this,ExperienceActivity.class);
         lvEducation.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 if (position == 0){
-                    startActivity(new Intent(FormalEducationActivity.this,ExperienceActivity.class));
-                    score = 1;
+                    educationScore = 1 * educationPercentage;
+                    intent.putExtra("ITE", educationScore);
+                    startActivity(intent);
+                    //startActivity(new Intent(FormalEducationActivity.this,ExperienceActivity.class));
                 }
             }
         });
