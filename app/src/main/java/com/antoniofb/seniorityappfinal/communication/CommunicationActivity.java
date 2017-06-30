@@ -11,10 +11,11 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.antoniofb.seniorityappfinal.R;
+import com.antoniofb.seniorityappfinal.technicalSkills.TechnicalSkillsActivity;
 
 public class CommunicationActivity extends AppCompatActivity {
 
-    private String[] management = {"Basic Interaction", "Task are assigned to an issue tracker", "Receives a lot of tasks", "3 or more years of experience", "4 or more years of experience"};
+    private String[] communication = {"Basic Interaction", "Task are assigned to an issue tracker", "Receives a lot of tasks", "3 or more years of experience", "4 or more years of experience"};
     private ListView lvCommunication;
     private int communicationScore = 0, communicationPercentage = 15;
     private int[] scores;
@@ -36,14 +37,14 @@ public class CommunicationActivity extends AppCompatActivity {
 
     public void showManagementList(){
         lvCommunication = (ListView) findViewById(R.id.lvCommunicationList);
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,R.layout.activity_listview,management);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,R.layout.activity_listview,communication);
         lvCommunication.setAdapter(adapter);
-        intent = new Intent(this, CommunicationActivity.class);
+        intent = new Intent(this, TechnicalSkillsActivity.class);
         lvCommunication.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 if (position == 0){
-                    communicationScore = 0 * communicationPercentage;
+                    communicationScore = 1 * communicationPercentage;
                     scores[3] = communicationScore;
                     intent.putExtra("BI", scores);
                     startActivity(intent);
@@ -56,6 +57,6 @@ public class CommunicationActivity extends AppCompatActivity {
     public void acumulateScores(){
         Bundle bundle = getIntent().getExtras();
         scores = bundle.getIntArray("TAO");
-        Log.d("TAG", "Score from experience ->>>>: " + scores[2] + " lalala");
+        Log.d("TAG", "Score from management ->>>>: " + scores[2] + " lalala");
     }
 }
