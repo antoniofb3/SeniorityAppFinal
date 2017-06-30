@@ -22,7 +22,10 @@
         <activity android:name=".results.SummaryActivity" />
         <activity android:name=".results.ResultsActivity" />
         <activity android:name=".management.ManagementActivity" />
-        <activity android:name=".communication.CommunicationActivity"></activity>
+        <activity android:name=".communication.CommunicationActivity" />
+        <activity android:name=".technicalSkills.TechnicalSkillsActivity" />
+        <activity android:name=".leadershipExperience.LeadershipExperienceActivity" />
+        <activity android:name=".empowerment.EmpowermentActivity"></activity>
     </application>
 
 </manifest>
