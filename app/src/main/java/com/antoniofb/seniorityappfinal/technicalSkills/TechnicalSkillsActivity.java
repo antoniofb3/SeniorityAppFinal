@@ -44,7 +44,7 @@ public class TechnicalSkillsActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 if (position == 0){
-                    skillsScore = 0 * skillsPercentage;
+                    skillsScore = 1 * skillsPercentage;
                     scores[4] = skillsScore;
                     intent.putExtra("LK", scores);
                     startActivity(intent);
