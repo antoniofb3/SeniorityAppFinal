@@ -20,7 +20,9 @@
         <activity android:name=".education.FormalEducationActivity" />
         <activity android:name=".experience.ExperienceActivity" />
         <activity android:name=".results.SummaryActivity" />
-        <activity android:name=".results.ResultsActivity"></activity>
+        <activity android:name=".results.ResultsActivity" />
+        <activity android:name=".management.ManagementActivity" />
+        <activity android:name=".communication.CommunicationActivity"></activity>
     </application>
 
 </manifest>

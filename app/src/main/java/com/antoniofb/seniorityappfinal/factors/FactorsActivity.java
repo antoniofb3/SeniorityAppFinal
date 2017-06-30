@@ -12,6 +12,8 @@ import android.widget.TextView;
 
 import com.antoniofb.seniorityappfinal.R;
 import com.antoniofb.seniorityappfinal.education.FormalEducationActivity;
+import com.antoniofb.seniorityappfinal.experience.ExperienceActivity;
+import com.antoniofb.seniorityappfinal.management.ManagementActivity;
 
 public class FactorsActivity extends AppCompatActivity {
 
@@ -53,6 +55,12 @@ public class FactorsActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 if (position == 0){
                     startActivity(new Intent(FactorsActivity.this, FormalEducationActivity.class));
+                }
+                if (position == 1){
+                    startActivity(new Intent(FactorsActivity.this, ExperienceActivity.class));
+                }
+                if (position == 2){
+                    startActivity(new Intent(FactorsActivity.this, ManagementActivity.class));
                 }
             }
         });
