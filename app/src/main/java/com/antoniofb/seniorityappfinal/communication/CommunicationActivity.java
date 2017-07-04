@@ -15,11 +15,12 @@ import com.antoniofb.seniorityappfinal.technicalSkills.TechnicalSkillsActivity;
 
 public class CommunicationActivity extends AppCompatActivity {
 
-    private String[] communication = {"Basic Interaction", "Task are assigned to an issue tracker", "Receives a lot of tasks", "3 or more years of experience", "4 or more years of experience"};
+    private String[] communication = {"Basic Interaction", "Basic Interaction: In the scrums and can answer questions to the external customer", "Frequent contact with the client", "Operational roles with outstanding management", "Negotiation of technical issues", "Gives talks and/or courses"};
     private ListView lvCommunication;
     private int communicationScore = 0, communicationPercentage = 15;
     private int[] scores;
     private Intent intent;
+    private int[] communicationScores = {1,2,3,4,5,6,7,8,9,10};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,11 +45,41 @@ public class CommunicationActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 if (position == 0){
-                    communicationScore = 1 * communicationPercentage;
+                    communicationScore = communicationScores[0] * communicationPercentage;
                     scores[3] = communicationScore;
                     intent.putExtra("BI", scores);
                     startActivity(intent);
                     //startActivity(new Intent(ManagementActivity.this,CommunicationActivity.class));
+                }
+                if (position == 1){
+                    communicationScore = communicationScores[1] * communicationPercentage;
+                    scores[3] = communicationScore;
+                    intent.putExtra("BI", scores);
+                    startActivity(intent);
+                }
+                if (position == 2){
+                    communicationScore = communicationScores[2] * communicationPercentage;
+                    scores[3] = communicationScore;
+                    intent.putExtra("BI", scores);
+                    startActivity(intent);
+                }
+                if (position == 3){
+                    communicationScore = communicationScores[3] * communicationPercentage;
+                    scores[3] = communicationScore;
+                    intent.putExtra("BI", scores);
+                    startActivity(intent);
+                }
+                if (position == 4){
+                    communicationScore = communicationScores[4] * communicationPercentage;
+                    scores[3] = communicationScore;
+                    intent.putExtra("BI", scores);
+                    startActivity(intent);
+                }
+                if (position ==5){
+                    communicationScore = communicationScores[5] * communicationPercentage;
+                    scores[3] = communicationScore;
+                    intent.putExtra("BI", scores);
+                    startActivity(intent);
                 }
             }
         });
