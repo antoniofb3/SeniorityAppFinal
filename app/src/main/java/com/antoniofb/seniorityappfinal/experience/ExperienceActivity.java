@@ -86,7 +86,12 @@ public class ExperienceActivity extends AppCompatActivity {
                     scores[1] = experienceScore;
                     intent.putExtra("WOE", scores);
                     startActivity(intent);
-                    //startActivity(new Intent(ExperienceActivity.this,SummaryActivity.class));
+                }
+                if (position == 6){
+                    experienceScore = experienceScores[6] * experiencePercentage;
+                    scores[1] = experienceScore;
+                    intent.putExtra("WOE", scores);
+                    startActivity(intent);
                 }
             }
         });

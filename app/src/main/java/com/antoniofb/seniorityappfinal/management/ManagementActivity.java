@@ -15,11 +15,12 @@ import com.antoniofb.seniorityappfinal.communication.CommunicationActivity;
 
 public class ManagementActivity extends AppCompatActivity {
 
-    private String[] management = {"Task are assigned objetivectly", "Task are assigned to an issue tracker", "Receives a lot of tasks", "3 or more years of experience", "4 or more years of experience"};
+    private String[] management = {"Task are assigned objetivectly", "Task are assigned to an issue tracker", "Receives a lot of tasks", "Participates actively in planning meetings", "Coaches with permanent contact, 6-12 people", "Coaches with permanent contact, more than 12 people"};
     private ListView lvManagement;
     private int managementScore = 0, managementPercentage = 20;
     private int[] scores;
     private Intent intent;
+    private int[] managementScores = {0,1,2,3,4,5,6,7,8,9,10};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,11 +45,41 @@ public class ManagementActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 if (position == 0){
-                    managementScore = 0 * managementPercentage;
+                    managementScore = managementScores[0] * managementPercentage;
                     scores[2] = managementScore;
                     intent.putExtra("TAO", scores);
                     startActivity(intent);
                     //startActivity(new Intent(ManagementActivity.this,CommunicationActivity.class));
+                }
+                if (position == 1){
+                    managementScore = managementScores[1] * managementPercentage;
+                    scores[2] = managementScore;
+                    intent.putExtra("TAO", scores);
+                    startActivity(intent);
+                }
+                if (position == 2){
+                    managementScore = managementScores[2] * managementPercentage;
+                    scores[2] = managementScore;
+                    intent.putExtra("TAO", scores);
+                    startActivity(intent);
+                }
+                if (position == 3){
+                    managementScore = managementScores[3] * managementPercentage;
+                    scores[2] = managementScore;
+                    intent.putExtra("TAO", scores);
+                    startActivity(intent);
+                }
+                if (position == 4){
+                    managementScore = managementScores[4] * managementPercentage;
+                    scores[2] = managementScore;
+                    intent.putExtra("TAO", scores);
+                    startActivity(intent);
+                }
+                if (position == 5){
+                    managementScore = managementScores[5] * managementPercentage;
+                    scores[2] = managementScore;
+                    intent.putExtra("TAO", scores);
+                    startActivity(intent);
                 }
             }
         });
