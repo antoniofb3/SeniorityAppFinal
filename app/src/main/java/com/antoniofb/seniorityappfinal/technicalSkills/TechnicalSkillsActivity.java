@@ -15,11 +15,12 @@ import com.antoniofb.seniorityappfinal.leadershipExperience.LeadershipExperience
 
 public class TechnicalSkillsActivity extends AppCompatActivity {
 
-    private String[] skills = {"Little knowledge", "Knows some", "Receives a lot of tasks", "3 or more years of experience", "4 or more years of experience"};
+    private String[] skills = {"Little knowledge", "Knows some programming language", "Knows and uses some of the best know namespaces", "Has a good knowledge of the namespaces", "Has a sustained and predictable productivity", "Is highly predictable with a sustained productivity"};
     private ListView lvSkills;
     private int skillsScore = 1, skillsPercentage = 20;
     private int[] scores;
     private Intent intent;
+    private int[] technicalSkillsScores = {1,2,3,4,5,6,7,8,9};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,11 +45,41 @@ public class TechnicalSkillsActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 if (position == 0){
-                    skillsScore = 1 * skillsPercentage;
+                    skillsScore = technicalSkillsScores[0] * skillsPercentage;
                     scores[4] = skillsScore;
                     intent.putExtra("LK", scores);
                     startActivity(intent);
                     //startActivity(new Intent(ManagementActivity.this,CommunicationActivity.class));
+                }
+                if (position == 1){
+                    skillsScore = technicalSkillsScores[1] * skillsPercentage;
+                    scores[4] = skillsScore;
+                    intent.putExtra("LK", scores);
+                    startActivity(intent);
+                }
+                if (position == 2){
+                    skillsScore = technicalSkillsScores[2] * skillsPercentage;
+                    scores[4] = skillsScore;
+                    intent.putExtra("LK", scores);
+                    startActivity(intent);
+                }
+                if (position == 3){
+                    skillsScore = technicalSkillsScores[3] * skillsPercentage;
+                    scores[4] = skillsScore;
+                    intent.putExtra("LK", scores);
+                    startActivity(intent);
+                }
+                if (position == 4){
+                    skillsScore = technicalSkillsScores[4] * skillsPercentage;
+                    scores[4] = skillsScore;
+                    intent.putExtra("LK", scores);
+                    startActivity(intent);
+                }
+                if (position == 5){
+                    skillsScore = technicalSkillsScores[5] * skillsPercentage;
+                    scores[4] = skillsScore;
+                    intent.putExtra("LK", scores);
+                    startActivity(intent);
                 }
             }
         });
