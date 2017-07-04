@@ -20,6 +20,7 @@ public class FormalEducationActivity extends AppCompatActivity {
     private int educationScore = 0, educationPercentage = 5;
     private int[] scores = new int[7];
     private Intent intent;
+    private int[] educationScores = {1,2,3,5,6};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +44,35 @@ public class FormalEducationActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 if (position == 0){
-                    educationScore = 1 * educationPercentage;
+                    educationScore = educationScores[0] * educationPercentage;
+                    scores[0] = educationScore;//always position 0
+                    intent.putExtra("ITE", scores);
+                    startActivity(intent);
+                    //startActivity(new Intent(FormalEducationActivity.this,ExperienceActivity.class));
+                }
+                if (position == 1){
+                    educationScore = educationScores[1] * educationPercentage;
+                    scores[0] = educationScore;//always position 0
+                    intent.putExtra("ITE", scores);
+                    startActivity(intent);
+                    //startActivity(new Intent(FormalEducationActivity.this,ExperienceActivity.class));
+                }
+                if (position == 2){
+                    educationScore = educationScores[2] * educationPercentage;
+                    scores[0] = educationScore;//always position 0
+                    intent.putExtra("ITE", scores);
+                    startActivity(intent);
+                    //startActivity(new Intent(FormalEducationActivity.this,ExperienceActivity.class));
+                }
+                if (position == 3){
+                    educationScore = educationScores[3] * educationPercentage;
+                    scores[0] = educationScore;//always position 0
+                    intent.putExtra("ITE", scores);
+                    startActivity(intent);
+                    //startActivity(new Intent(FormalEducationActivity.this,ExperienceActivity.class));
+                }
+                if (position == 4){
+                    educationScore = educationScores[4] * educationPercentage;
                     scores[0] = educationScore;//always position 0
                     intent.putExtra("ITE", scores);
                     startActivity(intent);
