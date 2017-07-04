@@ -20,6 +20,7 @@ public class EmpowermentActivity extends AppCompatActivity {
     private int empowermentScore = 0, empowermentPercentage = 10;
     private int[] scores;
     private Intent intent;
+    private int[] empowermentScores = {0,1,2,3,4,5,6,7,8,9};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,11 +45,23 @@ public class EmpowermentActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 if (position == 0){
-                    empowermentScore = 0 * empowermentPercentage;
+                    empowermentScore = empowermentScores[0] * empowermentPercentage;
                     scores[6] = empowermentScore;
                     intent.putExtra("EIH", scores);//always put the same key
                     startActivity(intent);
                     //startActivity(new Intent(ManagementActivity.this,CommunicationActivity.class));
+                }
+                if (position == 1){
+                    empowermentScore = empowermentScores[1] * empowermentPercentage;
+                    scores[6] = empowermentScore;
+                    intent.putExtra("EIH", scores);
+                    startActivity(intent);
+                }
+                if (position == 2){
+                    empowermentScore = empowermentScores[2] * empowermentPercentage;
+                    scores[6] = empowermentScore;
+                    intent.putExtra("EIH", scores);
+                    startActivity(intent);
                 }
             }
         });
