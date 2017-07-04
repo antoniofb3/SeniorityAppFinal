@@ -16,7 +16,7 @@ public class ResultsActivity extends AppCompatActivity {
 
     private Button btDone;
     private int[] scores;
-    private TextView tvSeniorityScore;
+    private TextView tvSeniorityScore, tvSeniorityCategory;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +41,33 @@ public class ResultsActivity extends AppCompatActivity {
         }
         tvSeniorityScore = (TextView) findViewById(R.id.tvSeniorityScore);
         tvSeniorityScore.setText(Integer.toString(seniorityScore));
+        showCategory(seniorityScore);
         //Log.d("TAG", "Score from leadership experience ->>>>: " + scores[5] + " lalala");
+    }
+
+    public void showCategory(int seniorityScore){
+        tvSeniorityCategory = (TextView) findViewById(R.id.tvSeniorityCategory);
+        if (seniorityScore <= 105){
+            tvSeniorityCategory.setText("Eng 1");
+        }
+        if (seniorityScore <= 180){
+            tvSeniorityCategory.setText("Eng 2");
+        }
+        if (seniorityScore <= 265){
+            tvSeniorityCategory.setText("Eng 3");
+        }
+        if (seniorityScore <= 395){
+            tvSeniorityCategory.setText("SR A");
+        }
+        if (seniorityScore <= 460){
+            tvSeniorityCategory.setText("SR B");
+        }
+        if (seniorityScore <= 535){
+            tvSeniorityCategory.setText("SR C/SME A");
+        }
+        if (seniorityScore <= 660){
+            tvSeniorityCategory.setText("SR D/SME B");
+        }
     }
 
     public void returnToRegistration(){
