@@ -21,13 +21,15 @@
     <ListView
         android:id="@+id/lvResultsList"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"></ListView>
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"></ListView>
 
     <Button
         android:id="@+id/btnConfirmSummary"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Register results"
-        android:layout_gravity="center"/>
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"/>
 
 </LinearLayout>

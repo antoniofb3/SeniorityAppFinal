@@ -11,9 +11,13 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.antoniofb.seniorityappfinal.R;
+import com.antoniofb.seniorityappfinal.communication.CommunicationActivity;
 import com.antoniofb.seniorityappfinal.education.FormalEducationActivity;
+import com.antoniofb.seniorityappfinal.empowerment.EmpowermentActivity;
 import com.antoniofb.seniorityappfinal.experience.ExperienceActivity;
+import com.antoniofb.seniorityappfinal.leadershipExperience.LeadershipExperienceActivity;
 import com.antoniofb.seniorityappfinal.management.ManagementActivity;
+import com.antoniofb.seniorityappfinal.technicalSkills.TechnicalSkillsActivity;
 
 public class FactorsActivity extends AppCompatActivity {
 
@@ -61,6 +65,18 @@ public class FactorsActivity extends AppCompatActivity {
                 }
                 if (position == 2){
                     startActivity(new Intent(FactorsActivity.this, ManagementActivity.class));
+                }
+                if (position == 3){
+                    startActivity(new Intent(FactorsActivity.this, CommunicationActivity.class));
+                }
+                if (position == 4){
+                    startActivity(new Intent(FactorsActivity.this, TechnicalSkillsActivity.class));
+                }
+                if (position == 5){
+                    startActivity(new Intent(FactorsActivity.this, LeadershipExperienceActivity.class));
+                }
+                if (position == 6){
+                    startActivity(new Intent(FactorsActivity.this, EmpowermentActivity.class));
                 }
             }
         });
