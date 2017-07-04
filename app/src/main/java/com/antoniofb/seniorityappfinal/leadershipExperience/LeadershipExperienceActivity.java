@@ -15,11 +15,12 @@ import com.antoniofb.seniorityappfinal.empowerment.EmpowermentActivity;
 
 public class LeadershipExperienceActivity extends AppCompatActivity {
 
-    private String[] leadershipExperience = {"Without experience", "1 or more years of experience", "Receives a lot of tasks", "3 or more years of experience", "4 or more years of experience"};
+    private String[] leadershipExperience = {"Without experience", "1 or more years of experience", "2 or more years of experience", "3 or more years of experience", "4 or more years of experience", "5 or more years of experience"};
     private ListView lvLeadershipExperience;
     private int leadershipScore = 1, leadershipPercentage = 20;
     private int[] scores;
     private Intent intent;
+    private int[] leadershipScores = {0,1,2,3,4,5,6,7,8,9,10};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,11 +45,41 @@ public class LeadershipExperienceActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 if (position == 0){
-                    leadershipScore = 0 * leadershipPercentage;
+                    leadershipScore = leadershipScores[0] * leadershipPercentage;
                     scores[5] = leadershipScore;
                     intent.putExtra("LEWE", scores);
                     startActivity(intent);
                     //startActivity(new Intent(ManagementActivity.this,CommunicationActivity.class));
+                }
+                if (position == 1){
+                    leadershipScore = leadershipScores[1] * leadershipPercentage;
+                    scores[5] = leadershipScore;
+                    intent.putExtra("LEWE", scores);
+                    startActivity(intent);
+                }
+                if (position == 2){
+                    leadershipScore = leadershipScores[2] * leadershipPercentage;
+                    scores[5] = leadershipScore;
+                    intent.putExtra("LEWE", scores);
+                    startActivity(intent);
+                }
+                if (position == 3){
+                    leadershipScore = leadershipScores[3] * leadershipPercentage;
+                    scores[5] = leadershipScore;
+                    intent.putExtra("LEWE", scores);
+                    startActivity(intent);
+                }
+                if (position == 4){
+                    leadershipScore = leadershipScores[4] * leadershipPercentage;
+                    scores[5] = leadershipScore;
+                    intent.putExtra("LEWE", scores);
+                    startActivity(intent);
+                }
+                if (position == 5){
+                    leadershipScore = leadershipScores[5] * leadershipPercentage;
+                    scores[5] = leadershipScore;
+                    intent.putExtra("LEWE", scores);
+                    startActivity(intent);
                 }
             }
         });
