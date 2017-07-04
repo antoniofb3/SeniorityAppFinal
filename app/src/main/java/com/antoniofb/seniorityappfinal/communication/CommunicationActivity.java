@@ -86,8 +86,14 @@ public class CommunicationActivity extends AppCompatActivity {
     }
 
     public void acumulateScores(){
-        Bundle bundle = getIntent().getExtras();
-        scores = bundle.getIntArray("TAO");
-        Log.d("TAG", "Score from management ->>>>: " + scores[2] + " lalala");
+        Intent intent = getIntent();
+        if (intent.hasExtra("TAO")) {
+            Bundle bundle = getIntent().getExtras();
+            scores = bundle.getIntArray("TAO");
+            Log.d("TAG", "Score from management ->>>>: " + scores[2] + " lalala");
+        }
+        else {
+            scores = new int[7];
+        }
     }
 }

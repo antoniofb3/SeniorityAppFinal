@@ -98,8 +98,14 @@ public class ExperienceActivity extends AppCompatActivity {
     }
 
     public void acumulateScores(){
-        Bundle bundle = getIntent().getExtras();
-        scores = bundle.getIntArray("ITE");
-        Log.d("TAG", "Score from education ->>>>: " + scores[0] + " lalala");
+        Intent intent = getIntent();
+        if (intent.hasExtra("ITE")) {
+            Bundle bundle = getIntent().getExtras();
+            scores = bundle.getIntArray("ITE");
+            Log.d("TAG", "Score from education ->>>>: " + scores[0] + " lalala");
+        }
+        else {
+            scores = new int[7];//I have to change this because it can delete the previous scores registered
+        }
     }
 }

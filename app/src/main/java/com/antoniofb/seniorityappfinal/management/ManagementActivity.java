@@ -86,8 +86,14 @@ public class ManagementActivity extends AppCompatActivity {
     }
 
     public void acumulateScores(){
-        Bundle bundle = getIntent().getExtras();
-        scores = bundle.getIntArray("WOE");
-        Log.d("TAG", "Score from experience ->>>>: " + scores[1] + " lalala");
+        Intent intent = getIntent();
+        if (intent.hasExtra("WOE")) {
+            Bundle bundle = getIntent().getExtras();
+            scores = bundle.getIntArray("WOE");
+            Log.d("TAG", "Score from experience ->>>>: " + scores[1] + " lalala");
+        }
+        else {
+            scores = new int[7];
+        }
     }
 }

@@ -86,8 +86,14 @@ public class LeadershipExperienceActivity extends AppCompatActivity {
     }
 
     public void acumulateScores(){
-        Bundle bundle = getIntent().getExtras();
-        scores = bundle.getIntArray("LK");
-        Log.d("TAG", "Score from technical skills ->>>>: " + scores[4] + " lalala");
+        Intent intent = getIntent();
+        if (intent.hasExtra("LK")) {
+            Bundle bundle = getIntent().getExtras();
+            scores = bundle.getIntArray("LK");
+            Log.d("TAG", "Score from technical skills ->>>>: " + scores[4] + " lalala");
+        }
+        else {
+            scores = new int[7];
+        }
     }
 }

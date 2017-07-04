@@ -86,8 +86,14 @@ public class TechnicalSkillsActivity extends AppCompatActivity {
     }
 
     public void acumulateScores(){
-        Bundle bundle = getIntent().getExtras();
-        scores = bundle.getIntArray("BI");
-        Log.d("TAG", "Score from communication ->>>>: " + scores[3] + " lalala");
+        Intent intent = getIntent();
+        if (intent.hasExtra("BI")) {
+            Bundle bundle = getIntent().getExtras();
+            scores = bundle.getIntArray("BI");
+            Log.d("TAG", "Score from communication ->>>>: " + scores[3] + " lalala");
+        }
+        else {
+            scores = new int[7];
+        }
     }
 }

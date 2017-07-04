@@ -42,6 +42,15 @@ public class SummaryActivity extends AppCompatActivity {
         scores = bundle.getIntArray("EIH");
     }
 
+    public void checkScores(){
+        for (int i=0;i<scores.length;i++){
+            /*
+            if (scores[i] == ){
+            }
+            */
+        }
+    }
+
     public void registerResults(){
         btConfirm = (Button) findViewById(R.id.btnConfirmSummary);
         intent = new Intent(this, ResultsActivity.class);

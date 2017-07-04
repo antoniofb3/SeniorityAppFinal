@@ -68,13 +68,14 @@ public class EmpowermentActivity extends AppCompatActivity {
     }
 
     public void acumulateScores(){
-        Bundle bundle = getIntent().getExtras();
-        //if (bundle.getIntArray("LEWE") != null) {
+        Intent intent = getIntent();
+        if (intent.hasExtra("LEWE")) {
+            Bundle bundle = getIntent().getExtras();
             scores = bundle.getIntArray("LEWE");
             Log.d("TAG", "Score from leadership experience ->>>>: " + scores[5] + " lalala");
-        //}
-        //else {
-          //  scores = new int[7];
-        //}
+        }
+        else {
+            scores = new int[7];
+        }
     }
 }
