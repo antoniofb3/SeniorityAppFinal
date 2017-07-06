@@ -24,6 +24,16 @@ public class FactorsActivity extends AppCompatActivity {
     private TextView tvEmpData;
     private ListView lvFactors;
     private String[] factors = {"Formal Education", "Experience", "Management", "Communication", "Technical Skills", "Leadership Experience", "Empowerment"};
+    private Integer[] imagesIds = {
+            R.drawable.education_icon,
+            R.drawable.experience_icon,
+            R.drawable.management_icon,
+            R.drawable.communication_icon,
+            R.drawable.technical_skills_icon,
+            R.drawable.leadership_experience_icon,
+            R.drawable.empowerment_icon
+    };
+    private int arrowId = R.drawable.arrow_icon;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +41,8 @@ public class FactorsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_factors);
         setActionBarTitle();
         showEmployeeData();
-        showFactorsList();
+        //showFactorsList();
+        showFactorsList2();
     }
 
     public void setActionBarTitle(){
@@ -57,6 +68,38 @@ public class FactorsActivity extends AppCompatActivity {
         lvFactors.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                if (position == 0){
+                    startActivity(new Intent(FactorsActivity.this, FormalEducationActivity.class));
+                }
+                if (position == 1){
+                    startActivity(new Intent(FactorsActivity.this, ExperienceActivity.class));
+                }
+                if (position == 2){
+                    startActivity(new Intent(FactorsActivity.this, ManagementActivity.class));
+                }
+                if (position == 3){
+                    startActivity(new Intent(FactorsActivity.this, CommunicationActivity.class));
+                }
+                if (position == 4){
+                    startActivity(new Intent(FactorsActivity.this, TechnicalSkillsActivity.class));
+                }
+                if (position == 5){
+                    startActivity(new Intent(FactorsActivity.this, LeadershipExperienceActivity.class));
+                }
+                if (position == 6){
+                    startActivity(new Intent(FactorsActivity.this, EmpowermentActivity.class));
+                }
+            }
+        });
+    }
+
+    private void showFactorsList2(){
+        CustomListAdapterFactors customListAdapter = new CustomListAdapterFactors(this, factors, imagesIds, arrowId);
+        lvFactors = (ListView) findViewById(R.id.lvFactorsList);
+        lvFactors.setAdapter(customListAdapter);
+        lvFactors.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                 if (position == 0){
                     startActivity(new Intent(FactorsActivity.this, FormalEducationActivity.class));
                 }

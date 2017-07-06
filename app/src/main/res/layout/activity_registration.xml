@@ -11,6 +11,21 @@
     android:orientation="vertical"
     tools:context="com.antoniofb.seniorityappfinal.registration.RegistrationActivity">
 
+    <ImageView
+        android:id="@+id/smallLogoBelatrixsf"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@drawable/small_logo_belatrixsf"
+        android:layout_gravity="center"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Belatrix Seniority"
+        android:textColor="#FF6600"
+        android:textAppearance="?android:textAppearanceLarge"
+        android:layout_gravity="center"/>
+
     <EditText
         android:id="@+id/employeeName"
         android:layout_width="match_parent"
