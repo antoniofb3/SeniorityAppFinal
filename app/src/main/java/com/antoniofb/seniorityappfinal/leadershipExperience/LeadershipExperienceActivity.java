@@ -32,9 +32,15 @@ public class LeadershipExperienceActivity extends AppCompatActivity {
         acumulateScores();
     }
 
+    @Override
+    public boolean onSupportNavigateUp() {
+        finish();
+        return true;
+    }
+
     public void setActionBarTitle(){
-        ActionBar ab = getSupportActionBar();
-        ab.setTitle("Leadership Experience");
+        getSupportActionBar().setTitle("Leadership Experience");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     public void showManagementList(){

@@ -41,13 +41,18 @@ public class FactorsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_factors);
         setActionBarTitle();
         showEmployeeData();
-        //showFactorsList();
-        showFactorsList2();
+        showFactorsList();
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        finish();
+        return true;
     }
 
     public void setActionBarTitle(){
-        ActionBar ab = getSupportActionBar();
-        ab.setTitle("Factors Screen");
+        getSupportActionBar().setTitle("Factors");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     public void showEmployeeData(){
@@ -61,39 +66,7 @@ public class FactorsActivity extends AppCompatActivity {
         tvEmpData.setText(empData[2]);
     }
 
-    public void showFactorsList(){
-        lvFactors = (ListView) findViewById(R.id.lvFactorsList);
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,R.layout.activity_listview,factors);
-        lvFactors.setAdapter(adapter);
-        lvFactors.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                if (position == 0){
-                    startActivity(new Intent(FactorsActivity.this, FormalEducationActivity.class));
-                }
-                if (position == 1){
-                    startActivity(new Intent(FactorsActivity.this, ExperienceActivity.class));
-                }
-                if (position == 2){
-                    startActivity(new Intent(FactorsActivity.this, ManagementActivity.class));
-                }
-                if (position == 3){
-                    startActivity(new Intent(FactorsActivity.this, CommunicationActivity.class));
-                }
-                if (position == 4){
-                    startActivity(new Intent(FactorsActivity.this, TechnicalSkillsActivity.class));
-                }
-                if (position == 5){
-                    startActivity(new Intent(FactorsActivity.this, LeadershipExperienceActivity.class));
-                }
-                if (position == 6){
-                    startActivity(new Intent(FactorsActivity.this, EmpowermentActivity.class));
-                }
-            }
-        });
-    }
-
-    private void showFactorsList2(){
+    private void showFactorsList(){
         CustomListAdapterFactors customListAdapter = new CustomListAdapterFactors(this, factors, imagesIds, arrowId);
         lvFactors = (ListView) findViewById(R.id.lvFactorsList);
         lvFactors.setAdapter(customListAdapter);

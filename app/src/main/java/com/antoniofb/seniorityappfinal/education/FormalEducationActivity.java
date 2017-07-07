@@ -30,9 +30,15 @@ public class FormalEducationActivity extends AppCompatActivity {
         showEducationList();
     }
 
+    @Override
+    public boolean onSupportNavigateUp() {
+        finish();
+        return true;
+    }
+
     public void setActionBarTitle(){
-        ActionBar ab = getSupportActionBar();
-        ab.setTitle("Formal Education Screen");
+        getSupportActionBar().setTitle("Formal Education");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     public void showEducationList(){

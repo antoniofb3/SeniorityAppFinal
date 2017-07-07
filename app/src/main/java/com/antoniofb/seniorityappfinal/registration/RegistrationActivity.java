@@ -26,9 +26,15 @@ public class RegistrationActivity extends AppCompatActivity {
         init();
     }
 
+    @Override
+    public boolean onSupportNavigateUp() {
+        finish();
+        return true;
+    }
+
     public void setActionBarTitle(){
-        ActionBar ab = getSupportActionBar();
-        ab.setTitle("Registration Screen");
+        getSupportActionBar().setTitle("Registration");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     private void init(){

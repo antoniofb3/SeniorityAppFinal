@@ -32,9 +32,15 @@ public class EmpowermentActivity extends AppCompatActivity {
         acumulateScores();
     }
 
+    @Override
+    public boolean onSupportNavigateUp() {
+        finish();
+        return true;
+    }
+
     public void setActionBarTitle(){
-        ActionBar ab = getSupportActionBar();
-        ab.setTitle("Empowerment");
+        getSupportActionBar().setTitle("Empowerment");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     public void showManagementList(){

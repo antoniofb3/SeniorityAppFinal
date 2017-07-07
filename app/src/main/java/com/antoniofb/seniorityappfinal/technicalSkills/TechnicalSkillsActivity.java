@@ -32,9 +32,15 @@ public class TechnicalSkillsActivity extends AppCompatActivity {
         acumulateScores();
     }
 
+    @Override
+    public boolean onSupportNavigateUp() {
+        finish();
+        return true;
+    }
+
     public void setActionBarTitle(){
-        ActionBar ab = getSupportActionBar();
-        ab.setTitle("Technical Skills");
+        getSupportActionBar().setTitle("Technical Skills");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     public void showManagementList(){
