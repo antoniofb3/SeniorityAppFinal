@@ -12,6 +12,7 @@ import android.widget.ListView;
 
 import com.antoniofb.seniorityappfinal.R;
 import com.antoniofb.seniorityappfinal.communication.CommunicationActivity;
+import com.antoniofb.seniorityappfinal.factors.FactorsActivity;
 
 public class ManagementActivity extends AppCompatActivity {
 
@@ -40,7 +41,7 @@ public class ManagementActivity extends AppCompatActivity {
         lvManagement = (ListView) findViewById(R.id.lvManagementList);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,R.layout.activity_listview,management);
         lvManagement.setAdapter(adapter);
-        intent = new Intent(this, CommunicationActivity.class);
+        intent = new Intent(this, FactorsActivity.class);
         lvManagement.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {

@@ -11,6 +11,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.antoniofb.seniorityappfinal.R;
+import com.antoniofb.seniorityappfinal.factors.FactorsActivity;
 import com.antoniofb.seniorityappfinal.results.SummaryActivity;
 
 public class EmpowermentActivity extends AppCompatActivity {
@@ -40,7 +41,7 @@ public class EmpowermentActivity extends AppCompatActivity {
         lvEmpowerment = (ListView) findViewById(R.id.lvEmpowermentList);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,R.layout.activity_listview,empowerment);
         lvEmpowerment.setAdapter(adapter);
-        intent = new Intent(this, SummaryActivity.class);
+        intent = new Intent(this, FactorsActivity.class);
         lvEmpowerment.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {

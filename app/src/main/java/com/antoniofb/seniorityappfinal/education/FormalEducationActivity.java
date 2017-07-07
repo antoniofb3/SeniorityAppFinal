@@ -39,7 +39,7 @@ public class FormalEducationActivity extends AppCompatActivity {
         lvEducation = (ListView) findViewById(R.id.lvFormalEducationList);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,R.layout.activity_listview,education);
         lvEducation.setAdapter(adapter);//me salio el mismo error de null el adapter, lo arregle poniendo bien el findViewById
-        intent = new Intent(this,ExperienceActivity.class);
+        intent = new Intent(this,FactorsActivity.class);
         lvEducation.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {

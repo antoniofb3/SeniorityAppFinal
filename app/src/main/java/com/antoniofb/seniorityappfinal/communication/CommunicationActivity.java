@@ -11,6 +11,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.antoniofb.seniorityappfinal.R;
+import com.antoniofb.seniorityappfinal.factors.FactorsActivity;
 import com.antoniofb.seniorityappfinal.technicalSkills.TechnicalSkillsActivity;
 
 public class CommunicationActivity extends AppCompatActivity {
@@ -40,7 +41,7 @@ public class CommunicationActivity extends AppCompatActivity {
         lvCommunication = (ListView) findViewById(R.id.lvCommunicationList);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,R.layout.activity_listview,communication);
         lvCommunication.setAdapter(adapter);
-        intent = new Intent(this, TechnicalSkillsActivity.class);
+        intent = new Intent(this, FactorsActivity.class);
         lvCommunication.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {

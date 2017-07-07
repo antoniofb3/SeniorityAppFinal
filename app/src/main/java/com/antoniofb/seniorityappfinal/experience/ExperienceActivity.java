@@ -12,6 +12,7 @@ import android.widget.ListView;
 
 import com.antoniofb.seniorityappfinal.R;
 import com.antoniofb.seniorityappfinal.communication.CommunicationActivity;
+import com.antoniofb.seniorityappfinal.factors.FactorsActivity;
 import com.antoniofb.seniorityappfinal.management.ManagementActivity;
 import com.antoniofb.seniorityappfinal.results.SummaryActivity;
 
@@ -42,7 +43,7 @@ public class ExperienceActivity extends AppCompatActivity {
         lvExperience = (ListView) findViewById(R.id.lvExperienceList);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,R.layout.activity_listview,experience);
         lvExperience.setAdapter(adapter);
-        intent = new Intent(this, ManagementActivity.class);
+        intent = new Intent(this, FactorsActivity.class);
         lvExperience.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
