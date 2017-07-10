@@ -46,7 +46,7 @@ public class FormalEducationActivity extends AppCompatActivity {
         CustomListAdapterFormalEducation customListAdapterFormalEducation = new CustomListAdapterFormalEducation(this, educationOptions, informationId, arrowId);
         lvEducationOptions = (ListView) findViewById(R.id.lvFormalEducationList);
         lvEducationOptions.setAdapter(customListAdapterFormalEducation);
-        intent = new Intent(this,FactorsActivity.class);
+        intent = new Intent(this,ExperienceActivity.class);
         lvEducationOptions.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {

@@ -47,7 +47,7 @@ public class LeadershipExperienceActivity extends AppCompatActivity {
         lvLeadershipExperience = (ListView) findViewById(R.id.lvLeadershipList);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,R.layout.activity_listview,leadershipExperience);
         lvLeadershipExperience.setAdapter(adapter);
-        intent = new Intent(this, FactorsActivity.class);
+        intent = new Intent(this, EmpowermentActivity.class);
         lvLeadershipExperience.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {

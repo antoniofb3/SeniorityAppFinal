@@ -47,7 +47,7 @@ public class EmpowermentActivity extends AppCompatActivity {
         lvEmpowerment = (ListView) findViewById(R.id.lvEmpowermentList);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,R.layout.activity_listview,empowerment);
         lvEmpowerment.setAdapter(adapter);
-        intent = new Intent(this, FactorsActivity.class);
+        intent = new Intent(this, SummaryActivity.class);
         lvEmpowerment.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {

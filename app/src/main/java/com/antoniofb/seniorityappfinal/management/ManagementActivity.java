@@ -47,7 +47,7 @@ public class ManagementActivity extends AppCompatActivity {
         lvManagement = (ListView) findViewById(R.id.lvManagementList);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,R.layout.activity_listview,management);
         lvManagement.setAdapter(adapter);
-        intent = new Intent(this, FactorsActivity.class);
+        intent = new Intent(this, CommunicationActivity.class);
         lvManagement.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {

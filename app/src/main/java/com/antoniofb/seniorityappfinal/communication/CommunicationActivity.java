@@ -47,7 +47,7 @@ public class CommunicationActivity extends AppCompatActivity {
         lvCommunication = (ListView) findViewById(R.id.lvCommunicationList);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,R.layout.activity_listview,communication);
         lvCommunication.setAdapter(adapter);
-        intent = new Intent(this, FactorsActivity.class);
+        intent = new Intent(this, TechnicalSkillsActivity.class);
         lvCommunication.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {

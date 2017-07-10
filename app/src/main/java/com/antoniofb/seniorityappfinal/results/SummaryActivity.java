@@ -14,17 +14,18 @@ import com.antoniofb.seniorityappfinal.R;
 public class SummaryActivity extends AppCompatActivity {
 
     private Button btConfirm;
-    private String[] results = {"Formal Education", "Experience", "Management", "Communication", "Technical Skills", "Leadership Experience", "Empowerment"};
+    private String[] factorsName = {"Formal Education", "Experience", "Management", "Communication", "Technical Skills", "Leadership Experience", "Empowerment"};
     private ListView lvResults;
-    private int[] scores;
+    private int[] scores = {0,0,0,0,0,0,0};
     private Intent intent;
+    private String[] factorsScore;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_summary);
         setActionBarTitle();
-        showSummaryResults();
+        showSummaryResults2();
         registerResults();
     }
 
@@ -35,20 +36,19 @@ public class SummaryActivity extends AppCompatActivity {
 
     public void showSummaryResults(){
         lvResults = (ListView) findViewById(R.id.lvResultsList);
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,R.layout.activity_listview,results);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,R.layout.activity_listview,factorsName);
         lvResults.setAdapter(adapter);
         //to add the scores
         Bundle bundle = getIntent().getExtras();
         scores = bundle.getIntArray("EIH");
     }
 
-    public void checkScores(){
-        for (int i=0;i<scores.length;i++){
-            /*
-            if (scores[i] == ){
-            }
-            */
-        }
+    public void showSummaryResults2(){
+        Bundle bundle = getIntent().getExtras();
+        scores = bundle.getIntArray("EIH");
+        CustomListAdapterSummary customListAdapterSummary = new CustomListAdapterSummary(this,factorsName,scores);
+        lvResults = (ListView) findViewById(R.id.lvResultsList);
+        lvResults.setAdapter(customListAdapterSummary);
     }
 
     public void registerResults(){

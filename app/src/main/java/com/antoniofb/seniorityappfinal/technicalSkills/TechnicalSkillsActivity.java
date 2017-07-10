@@ -47,7 +47,7 @@ public class TechnicalSkillsActivity extends AppCompatActivity {
         lvSkills = (ListView) findViewById(R.id.lvSkillsList);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,R.layout.activity_listview,skills);
         lvSkills.setAdapter(adapter);
-        intent = new Intent(this, FactorsActivity.class);
+        intent = new Intent(this, LeadershipExperienceActivity.class);
         lvSkills.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
