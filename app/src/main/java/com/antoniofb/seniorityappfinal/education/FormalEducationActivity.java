@@ -15,12 +15,13 @@ import com.antoniofb.seniorityappfinal.factors.FactorsActivity;
 
 public class FormalEducationActivity extends AppCompatActivity {
 
-    private String[] education = {"Incomplete Terciary Education", "Incomplete Bachelor", "Bachelor", "Graduated + Especializated", "Master"};
-    private ListView lvEducation;
+    private String[] educationOptions = {"Incomplete Terciary Education", "Incomplete Bachelor", "Bachelor", "Graduated + Especializated", "Master"};
+    private ListView lvEducationOptions;
     private int educationScore = 0, educationPercentage = 5;
     private int[] scores = new int[7];
     private Intent intent;
     private int[] educationScores = {1,2,3,5,6};
+    private int informationId = R.drawable.information_icon, arrowId = R.drawable.arrow_icon;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,47 +43,42 @@ public class FormalEducationActivity extends AppCompatActivity {
     }
 
     public void showEducationList(){
-        lvEducation = (ListView) findViewById(R.id.lvFormalEducationList);
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,R.layout.activity_listview,education);
-        lvEducation.setAdapter(adapter);//me salio el mismo error de null el adapter, lo arregle poniendo bien el findViewById
+        CustomListAdapterFormalEducation customListAdapterFormalEducation = new CustomListAdapterFormalEducation(this, educationOptions, informationId, arrowId);
+        lvEducationOptions = (ListView) findViewById(R.id.lvFormalEducationList);
+        lvEducationOptions.setAdapter(customListAdapterFormalEducation);
         intent = new Intent(this,FactorsActivity.class);
-        lvEducation.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        lvEducationOptions.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                 if (position == 0){
                     educationScore = educationScores[0] * educationPercentage;
-                    scores[0] = educationScore;//always position 0
-                    intent.putExtra("ITE", scores);
+                    scores[0] = educationScore;
+                    intent.putExtra("FEO", scores);
                     startActivity(intent);
-                    //startActivity(new Intent(FormalEducationActivity.this,ExperienceActivity.class));
                 }
                 if (position == 1){
                     educationScore = educationScores[1] * educationPercentage;
-                    scores[0] = educationScore;//always position 0
-                    intent.putExtra("ITE", scores);
+                    scores[0] = educationScore;
+                    intent.putExtra("FEO", scores);
                     startActivity(intent);
-                    //startActivity(new Intent(FormalEducationActivity.this,ExperienceActivity.class));
                 }
                 if (position == 2){
                     educationScore = educationScores[2] * educationPercentage;
-                    scores[0] = educationScore;//always position 0
-                    intent.putExtra("ITE", scores);
+                    scores[0] = educationScore;
+                    intent.putExtra("FEO", scores);
                     startActivity(intent);
-                    //startActivity(new Intent(FormalEducationActivity.this,ExperienceActivity.class));
                 }
                 if (position == 3){
                     educationScore = educationScores[3] * educationPercentage;
-                    scores[0] = educationScore;//always position 0
-                    intent.putExtra("ITE", scores);
+                    scores[0] = educationScore;
+                    intent.putExtra("FEO", scores);
                     startActivity(intent);
-                    //startActivity(new Intent(FormalEducationActivity.this,ExperienceActivity.class));
                 }
                 if (position == 4){
                     educationScore = educationScores[4] * educationPercentage;
-                    scores[0] = educationScore;//always position 0
-                    intent.putExtra("ITE", scores);
+                    scores[0] = educationScore;
+                    intent.putExtra("FEO", scores);
                     startActivity(intent);
-                    //startActivity(new Intent(FormalEducationActivity.this,ExperienceActivity.class));
                 }
             }
         });

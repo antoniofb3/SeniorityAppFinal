@@ -106,9 +106,9 @@ public class ExperienceActivity extends AppCompatActivity {
 
     public void acumulateScores(){
         Intent intent = getIntent();
-        if (intent.hasExtra("ITE")) {
+        if (intent.hasExtra("FEO")) {
             Bundle bundle = getIntent().getExtras();
-            scores = bundle.getIntArray("ITE");
+            scores = bundle.getIntArray("FEO");
             Log.d("TAG", "Score from education ->>>>: " + scores[0] + " lalala");
         }
         else {
