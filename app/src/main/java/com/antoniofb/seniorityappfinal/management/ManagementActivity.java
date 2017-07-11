@@ -16,12 +16,19 @@ import com.antoniofb.seniorityappfinal.factors.FactorsActivity;
 
 public class ManagementActivity extends AppCompatActivity {
 
-    private String[] management = {"Task are assigned objetivectly", "Task are assigned to an issue tracker", "Receives a lot of tasks", "Participates actively in planning meetings", "Coaches with permanent contact, 6-12 people", "Coaches with permanent contact, more than 12 people"};
+    private String[] managementOptions = {"Task are assigned objetivectly",
+            "Task to an issue tracker",
+            "Receives a lot of tasks",
+            "Participates actively in meetings",
+            "Coaches 6-12 people",
+            "Coaches more than 12 people"
+    };
     private ListView lvManagement;
     private int managementScore = 0, managementPercentage = 20;
     private int[] scores;
     private Intent intent;
     private int[] managementScores = {0,1,2,3,4,5,6,7,8,9,10};
+    private int informationId = R.drawable.information_icon, arrowId = R.drawable.arrow_icon;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,9 +51,9 @@ public class ManagementActivity extends AppCompatActivity {
     }
 
     public void showManagementList(){
+        CustomListAdapterManagement customListAdapterManagement = new CustomListAdapterManagement(this,managementOptions,informationId,arrowId);
         lvManagement = (ListView) findViewById(R.id.lvManagementList);
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,R.layout.activity_listview,management);
-        lvManagement.setAdapter(adapter);
+        lvManagement.setAdapter(customListAdapterManagement);
         intent = new Intent(this, CommunicationActivity.class);
         lvManagement.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -56,7 +63,6 @@ public class ManagementActivity extends AppCompatActivity {
                     scores[2] = managementScore;
                     intent.putExtra("TAO", scores);
                     startActivity(intent);
-                    //startActivity(new Intent(ManagementActivity.this,CommunicationActivity.class));
                 }
                 if (position == 1){
                     managementScore = managementScores[1] * managementPercentage;

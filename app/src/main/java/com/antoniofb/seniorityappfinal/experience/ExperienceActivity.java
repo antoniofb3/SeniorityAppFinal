@@ -32,7 +32,7 @@ public class ExperienceActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_experience);
         setActionBarTitle();
-        showExperienceList2();
+        showExperienceList();
         acumulateScores();
     }
 
@@ -47,7 +47,7 @@ public class ExperienceActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
-    public void showExperienceList2(){
+    public void showExperienceList(){
         CustomListAdapterWorkExperience customListAdapterWorkExperience = new CustomListAdapterWorkExperience(this,workExperienceOptions, informationId, arrowId );
         lvExperience = (ListView) findViewById(R.id.lvExperienceList);
         lvExperience.setAdapter(customListAdapterWorkExperience);
@@ -60,54 +60,30 @@ public class ExperienceActivity extends AppCompatActivity {
                     scores[1] = experienceScore;
                     intent.putExtra("WOE", scores);
                     startActivity(intent);
-                    //startActivity(new Intent(ExperienceActivity.this,SummaryActivity.class));
-                }
-            }
-        });
-    }
-
-    public void showExperienceList(){
-        lvExperience = (ListView) findViewById(R.id.lvExperienceList);
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,R.layout.activity_listview,workExperienceOptions);
-        lvExperience.setAdapter(adapter);
-        intent = new Intent(this, ManagementActivity.class);
-        lvExperience.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                if (position == 0){
-                    experienceScore = experienceScores[0] * experiencePercentage;
-                    scores[1] = experienceScore;
-                    intent.putExtra("WOE", scores);
-                    startActivity(intent);
-                    //startActivity(new Intent(ExperienceActivity.this,SummaryActivity.class));
                 }
                 if (position == 1){
                     experienceScore = experienceScores[1] * experiencePercentage;
                     scores[1] = experienceScore;
                     intent.putExtra("WOE", scores);
                     startActivity(intent);
-                    //startActivity(new Intent(ExperienceActivity.this,SummaryActivity.class));
                 }
                 if (position == 2){
                     experienceScore = experienceScores[2] * experiencePercentage;
                     scores[1] = experienceScore;
                     intent.putExtra("WOE", scores);
                     startActivity(intent);
-                    //startActivity(new Intent(ExperienceActivity.this,SummaryActivity.class));
                 }
                 if (position == 3){
                     experienceScore = experienceScores[3] * experiencePercentage;
                     scores[1] = experienceScore;
                     intent.putExtra("WOE", scores);
                     startActivity(intent);
-                    //startActivity(new Intent(ExperienceActivity.this,SummaryActivity.class));
                 }
                 if (position == 4){
                     experienceScore = experienceScores[4] * experiencePercentage;
                     scores[1] = experienceScore;
                     intent.putExtra("WOE", scores);
                     startActivity(intent);
-                    //startActivity(new Intent(ExperienceActivity.this,SummaryActivity.class));
                 }
                 if (position == 5){
                     experienceScore = experienceScores[5] * experiencePercentage;
