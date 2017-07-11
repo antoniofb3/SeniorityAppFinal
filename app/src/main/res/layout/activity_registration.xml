@@ -13,8 +13,8 @@
 
     <ImageView
         android:id="@+id/smallLogoBelatrixsf"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
         android:src="@drawable/small_logo_belatrixsf"
         android:layout_gravity="center"/>
 
