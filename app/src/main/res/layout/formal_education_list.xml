@@ -16,7 +16,7 @@
         android:layout_height="30dp"
         android:padding="5dp"
         android:layout_centerVertical="true"
-        android:layout_toRightOf="@id/formalEducationOption"/>
+        android:layout_toLeftOf="@id/arrowIcon"/>
 
     <ImageView
         android:id="@+id/arrowIcon"
