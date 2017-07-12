@@ -5,8 +5,9 @@
 
     <ImageView
         android:id="@+id/iconFactor"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_centerVertical="true"
         android:padding="5dp" />
 
     <TextView
@@ -15,6 +16,7 @@
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:layout_toRightOf="@id/iconFactor"
+        android:layout_margin="10dp"
         android:textAppearance="?android:textAppearanceMedium"/>
 
     <ImageView
