@@ -16,7 +16,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAppearance="?android:textAppearanceMedium"
-        android:text="Select the correct experience option for this employee: "/>
+        android:text="Select the experience option for this employee: "
+        android:textStyle="bold"/>
 
     <ListView
         android:id="@+id/lvExperienceList"

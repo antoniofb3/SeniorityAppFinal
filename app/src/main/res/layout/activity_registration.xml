@@ -24,7 +24,8 @@
         android:text="Belatrix Seniority"
         android:textColor="#FF6600"
         android:textAppearance="?android:textAppearanceLarge"
-        android:layout_gravity="center"/>
+        android:layout_gravity="center"
+        android:layout_margin="5dp"/>
 
     <EditText
         android:id="@+id/employeeName"
@@ -33,7 +34,8 @@
         android:hint="Employee name"
         android:inputType="textPersonName"
         android:imeOptions="actionNext"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:layout_margin="5dp"/>
 
     <EditText
         android:id="@+id/employeeJob"
@@ -41,7 +43,8 @@
         android:layout_height="wrap_content"
         android:hint="Employee job"
         android:inputType="textCapWords"
-        android:imeOptions="actionNext" />
+        android:imeOptions="actionNext"
+        android:layout_margin="5dp"/>
 
     <EditText
         android:id="@+id/employeeSeniority"
@@ -49,7 +52,8 @@
         android:layout_height="wrap_content"
         android:hint="Employee seniority"
         android:inputType="textCapWords"
-        android:imeOptions="actionDone" />
+        android:imeOptions="actionDone"
+        android:layout_margin="5dp"/>
 
     <Button
         android:id="@+id/btnRegisterEmployee"
