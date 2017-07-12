@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -21,7 +23,7 @@ public class FormalEducationActivity extends AppCompatActivity {
     private int[] scores = new int[7];
     private Intent intent;
     private int[] educationScores = {1,2,3,5,6};
-    private int informationId = R.drawable.information_icon, arrowId = R.drawable.arrow_icon;
+    private int checkedId = R.drawable.checked_icon;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,16 +39,32 @@ public class FormalEducationActivity extends AppCompatActivity {
         return true;
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        //return super.onCreateOptionsMenu(menu);
+        getMenuInflater().inflate(R.menu.menu_formal_education, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        //return super.onOptionsItemSelected(item);
+        if (item.getItemId() == R.id.helpButton){
+            startActivity(new Intent(this,FormalEducationHelpActivity.class));
+        }
+        return true;
+    }
+
     public void setActionBarTitle(){
         getSupportActionBar().setTitle("Formal Education");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     public void showEducationList(){
-        CustomListAdapterFormalEducation customListAdapterFormalEducation = new CustomListAdapterFormalEducation(this, educationOptions, informationId, arrowId);
+        CustomListAdapterFormalEducation customListAdapterFormalEducation = new CustomListAdapterFormalEducation(this, educationOptions, checkedId);
         lvEducationOptions = (ListView) findViewById(R.id.lvFormalEducationList);
         lvEducationOptions.setAdapter(customListAdapterFormalEducation);
-        intent = new Intent(this,ExperienceActivity.class);
+        intent = new Intent(this,FactorsActivity.class);
         lvEducationOptions.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {

@@ -18,16 +18,17 @@ public class CustomListAdapterFormalEducation extends ArrayAdapter<String> {
 
     private final Activity context;
     private final String[] educationOptions;
-    private final int informationId, arrowId;
+    //private final Integer[] imagesIds;
+    private final int checkedId;
 
-    public CustomListAdapterFormalEducation(Activity context, String[] educationOptions, int informationId, int arrowId) {
+    public CustomListAdapterFormalEducation(Activity context, String[] educationOptions, int checkedId) {
         super(context, R.layout.formal_education_list, educationOptions);
         // TODO Auto-generated constructor stub
 
         this.context = context;
         this.educationOptions = educationOptions;
-        this.informationId = informationId;
-        this.arrowId = arrowId;
+        //this.imagesIds = imagesIds;
+        this.checkedId = checkedId;
     }
 
     public View getView(int position,View view,ViewGroup parent) {
@@ -35,12 +36,12 @@ public class CustomListAdapterFormalEducation extends ArrayAdapter<String> {
         View rowView=inflater.inflate(R.layout.formal_education_list, null,true);
 
         TextView txtTitle = (TextView) rowView.findViewById(R.id.formalEducationOption);
-        ImageView imageView = (ImageView) rowView.findViewById(R.id.informationIcon);
-        ImageView imageView2 = (ImageView) rowView.findViewById(R.id.arrowIcon);
+        //ImageView imageView = (ImageView) rowView.findViewById(R.id.checkedIcon);
+        ImageView imageView2 = (ImageView) rowView.findViewById(R.id.checkedIcon);
 
-        txtTitle.setText(educationOptions[position]);//itemname es un array de strings, donde va estar el texto de mis factores
-        imageView.setImageResource(informationId);
-        imageView2.setImageResource(arrowId);
+        txtTitle.setText(educationOptions[position]);
+        //imageView.setImageResource(imagesIds[position]);
+        imageView2.setImageResource(checkedId);
         return rowView;
 
     };

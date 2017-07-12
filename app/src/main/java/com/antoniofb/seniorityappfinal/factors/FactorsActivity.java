@@ -97,4 +97,8 @@ public class FactorsActivity extends AppCompatActivity {
             }
         });
     }
+
+    public void checkValue(){
+
+    }
 }
