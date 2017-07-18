@@ -23,7 +23,16 @@ public class FactorsActivity extends AppCompatActivity {
 
     private TextView tvEmpData;
     private ListView lvFactors;
-    private String[] factors = {"Formal Education", "Experience", "Management", "Communication", "Technical Skills", "Leadership Experience", "Empowerment"};
+    private String[] factors = {
+            "Formal Education",
+            "Experience",
+            "Management",
+            "Communication",
+            "Technical Skills",
+            "Leadership Experience",
+            "Empowerment"
+    };
+    private String[] factorsChosen = new String[7];
     private Integer[] imagesIds = {
             R.drawable.education_icon,
             R.drawable.experience_icon,
@@ -40,7 +49,7 @@ public class FactorsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_factors);
         setActionBarTitle();
-        showEmployeeData();
+        //showEmployeeData();
         showFactorsList();
     }
 
@@ -67,7 +76,7 @@ public class FactorsActivity extends AppCompatActivity {
     }
 
     private void showFactorsList(){
-        CustomListAdapterFactors customListAdapter = new CustomListAdapterFactors(this, factors, imagesIds, arrowId);
+        CustomListAdapterFactors customListAdapter = new CustomListAdapterFactors(this, factors, factorsChosen, imagesIds, arrowId);
         lvFactors = (ListView) findViewById(R.id.lvFactorsList);
         lvFactors.setAdapter(customListAdapter);
         lvFactors.setOnItemClickListener(new AdapterView.OnItemClickListener() {

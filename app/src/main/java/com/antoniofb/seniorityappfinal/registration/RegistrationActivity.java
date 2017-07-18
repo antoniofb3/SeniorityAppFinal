@@ -23,6 +23,7 @@ public class RegistrationActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration);
         setActionBarTitle();
+        setupGUI();
         init();
     }
 
@@ -32,13 +33,19 @@ public class RegistrationActivity extends AppCompatActivity {
         return true;
     }
 
+    public void setupGUI(){
+        btRegisterEmployee = (Button) findViewById(R.id.btnRegisterEmployee);
+        etEmployeeName = (EditText) findViewById(R.id.employeeName);
+        etEmployeeJob = (EditText) findViewById(R.id.employeeJob);
+        etEmployeeSeniority = (EditText) findViewById(R.id.employeeSeniority);
+    }
+
     public void setActionBarTitle(){
         getSupportActionBar().setTitle("Registration");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     private void init(){
-        btRegisterEmployee = (Button) findViewById(R.id.btnRegisterEmployee);
         btRegisterEmployee.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -48,9 +55,6 @@ public class RegistrationActivity extends AppCompatActivity {
     }
 
     public void registerEmployee(){
-        etEmployeeName = (EditText) findViewById(R.id.employeeName);
-        etEmployeeJob = (EditText) findViewById(R.id.employeeJob);
-        etEmployeeSeniority = (EditText) findViewById(R.id.employeeSeniority);
         String employeeName, employeeJob, employeeSeniority;
         if (isFormValidated()){
             Intent i = new Intent(this,FactorsActivity.class);

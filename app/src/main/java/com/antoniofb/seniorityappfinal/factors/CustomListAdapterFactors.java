@@ -17,16 +17,17 @@ import com.antoniofb.seniorityappfinal.R;
 public class CustomListAdapterFactors extends ArrayAdapter<String> {
 
     private final Activity context;
-    private final String[] factors;
+    private final String[] factors, factorsChosen;
     private final Integer[] imagesIds;
     private final int arrowId;
 
-    public CustomListAdapterFactors(Activity context, String[] factors, Integer[] imagesIds, int arrowId) {
+    public CustomListAdapterFactors(Activity context, String[] factors, String[] factorsChosen, Integer[] imagesIds, int arrowId) {
         super(context, R.layout.factors_list, factors);
         // TODO Auto-generated constructor stub
 
         this.context = context;
         this.factors = factors;
+        this.factorsChosen = factorsChosen;
         this.imagesIds = imagesIds;
         this.arrowId = arrowId;
     }
@@ -36,10 +37,12 @@ public class CustomListAdapterFactors extends ArrayAdapter<String> {
         View rowView=inflater.inflate(R.layout.factors_list, null,true);
 
         TextView txtTitle = (TextView) rowView.findViewById(R.id.nameFactor);
+        TextView txtSubtile = (TextView) rowView.findViewById(R.id.factorChosen);
         ImageView imageView = (ImageView) rowView.findViewById(R.id.iconFactor);
         ImageView imageView2 = (ImageView) rowView.findViewById(R.id.arrowIcon);
 
         txtTitle.setText(factors[position]);//itemname es un array de strings, donde va estar el texto de mis factores
+        txtSubtile.setText(factorsChosen[position]);
         imageView.setImageResource(imagesIds[position]);
         imageView2.setImageResource(arrowId);
         return rowView;
