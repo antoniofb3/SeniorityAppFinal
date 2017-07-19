@@ -160,5 +160,19 @@ public class FactorsActivity extends AppCompatActivity {
                 customListAdapter.notifyDataSetChanged();
             }
         }
+        if (requestCode == 6){
+            if (resultCode == Activity.RESULT_OK){
+                String leadershipExperienceOption = data.getStringExtra("LEO");
+                factorsChosen[5] = leadershipExperienceOption;
+                customListAdapter.notifyDataSetChanged();
+            }
+        }
+        if (requestCode == 7){
+            if (resultCode == Activity.RESULT_OK){
+                String empowermentOption = data.getStringExtra("EO");
+                factorsChosen[6] = empowermentOption;
+                customListAdapter.notifyDataSetChanged();
+            }
+        }
     }
 }
