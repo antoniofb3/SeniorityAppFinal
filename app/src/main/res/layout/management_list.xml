@@ -12,14 +12,6 @@
         android:layout_margin="10dp"/>
 
     <ImageView
-        android:id="@+id/informationIcon"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:padding="5dp"
-        android:layout_centerVertical="true"
-        android:layout_toLeftOf="@id/arrowIcon"/>
-
-    <ImageView
         android:id="@+id/arrowIcon"
         android:layout_width="30dp"
         android:layout_height="30dp"

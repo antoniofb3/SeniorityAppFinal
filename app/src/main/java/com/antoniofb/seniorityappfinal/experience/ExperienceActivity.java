@@ -26,7 +26,7 @@ public class ExperienceActivity extends AppCompatActivity {
     private int[] scores;
     private Intent intent;
     private int[] experienceScores = {0,1,2,3,4,5,6,7,8,9,10};
-    private int informationId = R.drawable.information_icon, arrowId = R.drawable.arrow_icon;
+    private int arrowId = R.drawable.arrow_icon;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,7 +54,7 @@ public class ExperienceActivity extends AppCompatActivity {
     }
 
     public void showExperienceList(){
-        CustomListAdapterWorkExperience customListAdapterWorkExperience = new CustomListAdapterWorkExperience(this,workExperienceOptions, informationId, arrowId );
+        CustomListAdapterWorkExperience customListAdapterWorkExperience = new CustomListAdapterWorkExperience(this,workExperienceOptions, arrowId );
         lvExperience.setAdapter(customListAdapterWorkExperience);
         intent = new Intent(this, FactorsActivity.class);
         lvExperience.setOnItemClickListener(new AdapterView.OnItemClickListener() {

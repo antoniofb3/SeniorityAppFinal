@@ -29,7 +29,7 @@ public class ManagementActivity extends AppCompatActivity {
     private int[] scores;
     private Intent intent;
     private int[] managementScores = {0,1,2,3,4,5,6,7,8,9,10};
-    private int informationId = R.drawable.information_icon, arrowId = R.drawable.arrow_icon;
+    private int arrowId = R.drawable.arrow_icon;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,7 +52,7 @@ public class ManagementActivity extends AppCompatActivity {
     }
 
     public void showManagementList(){
-        CustomListAdapterManagement customListAdapterManagement = new CustomListAdapterManagement(this,managementOptions,informationId,arrowId);
+        CustomListAdapterManagement customListAdapterManagement = new CustomListAdapterManagement(this, managementOptions, arrowId);
         lvManagement = (ListView) findViewById(R.id.lvManagementList);
         lvManagement.setAdapter(customListAdapterManagement);
         intent = new Intent(this, FactorsActivity.class);

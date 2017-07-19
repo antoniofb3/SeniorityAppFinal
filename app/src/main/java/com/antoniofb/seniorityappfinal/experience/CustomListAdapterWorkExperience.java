@@ -18,15 +18,14 @@ public class CustomListAdapterWorkExperience extends ArrayAdapter<String> {
 
     private final Activity context;
     private final String[] workExperienceOptions;
-    private final int informationId, arrowId;
+    private final int arrowId;
 
-    public CustomListAdapterWorkExperience(Activity context, String[] workExperienceOptions, int informationId, int arrowId) {
+    public CustomListAdapterWorkExperience(Activity context, String[] workExperienceOptions, int arrowId) {
         super(context, R.layout.work_experience_list, workExperienceOptions);
         // TODO Auto-generated constructor stub
 
         this.context = context;
         this.workExperienceOptions = workExperienceOptions;
-        this.informationId = informationId;
         this.arrowId = arrowId;
     }
 
@@ -35,12 +34,10 @@ public class CustomListAdapterWorkExperience extends ArrayAdapter<String> {
         View rowView=inflater.inflate(R.layout.work_experience_list, null,true);
 
         TextView txtTitle = (TextView) rowView.findViewById(R.id.workExperienceOption);
-        ImageView imageView = (ImageView) rowView.findViewById(R.id.informationIcon);
-        ImageView imageView2 = (ImageView) rowView.findViewById(R.id.arrowIcon);
+        ImageView imageView = (ImageView) rowView.findViewById(R.id.arrowIcon);
 
-        txtTitle.setText(workExperienceOptions[position]);//itemname es un array de strings, donde va estar el texto de mis factores
-        imageView.setImageResource(informationId);
-        imageView2.setImageResource(arrowId);
+        txtTitle.setText(workExperienceOptions[position]);
+        imageView.setImageResource(arrowId);
         return rowView;
 
     };
