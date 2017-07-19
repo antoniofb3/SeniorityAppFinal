@@ -30,7 +30,7 @@ public class LeadershipExperienceActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_leadership_experience);
         setActionBarTitle();
-        showManagementList2();
+        showManagementList();
         acumulateScores();
     }
 
@@ -45,64 +45,10 @@ public class LeadershipExperienceActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
-    public void showManagementList2(){
+    public void showManagementList(){
         lvLeadershipExperience = (ListView) findViewById(R.id.lvLeadershipList);
         CustomListAdapterLeadershipExperience customListAdapterLeadershipExperience = new CustomListAdapterLeadershipExperience(this, leadershipExperienceOptions, checkedId);
         lvLeadershipExperience.setAdapter(customListAdapterLeadershipExperience);
-        intent = new Intent(this, FactorsActivity.class);
-        lvLeadershipExperience.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                if (position == 0){
-                    leadershipScore = leadershipScores[0] * leadershipPercentage;
-                    scores[5] = leadershipScore;
-                    intent.putExtra("LEO", leadershipExperienceOptions[0] );
-                    setResult(Activity.RESULT_OK,intent);
-                    finish();
-                }
-                if (position == 1){
-                    leadershipScore = leadershipScores[1] * leadershipPercentage;
-                    scores[5] = leadershipScore;
-                    intent.putExtra("LEO", leadershipExperienceOptions[1] );
-                    setResult(Activity.RESULT_OK,intent);
-                    finish();
-                }
-                if (position == 2){
-                    leadershipScore = leadershipScores[2] * leadershipPercentage;
-                    scores[5] = leadershipScore;
-                    intent.putExtra("LEO", leadershipExperienceOptions[2] );
-                    setResult(Activity.RESULT_OK,intent);
-                    finish();
-                }
-                if (position == 3){
-                    leadershipScore = leadershipScores[3] * leadershipPercentage;
-                    scores[5] = leadershipScore;
-                    intent.putExtra("LEO", leadershipExperienceOptions[3] );
-                    setResult(Activity.RESULT_OK,intent);
-                    finish();
-                }
-                if (position == 4){
-                    leadershipScore = leadershipScores[4] * leadershipPercentage;
-                    scores[5] = leadershipScore;
-                    intent.putExtra("LEO", leadershipExperienceOptions[4] );
-                    setResult(Activity.RESULT_OK,intent);
-                    finish();
-                }
-                if (position == 5){
-                    leadershipScore = leadershipScores[5] * leadershipPercentage;
-                    scores[5] = leadershipScore;
-                    intent.putExtra("LEO", leadershipExperienceOptions[5] );
-                    setResult(Activity.RESULT_OK,intent);
-                    finish();
-                }
-            }
-        });
-    }
-
-    public void showManagementList(){
-        lvLeadershipExperience = (ListView) findViewById(R.id.lvLeadershipList);
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,R.layout.activity_listview,leadershipExperienceOptions);
-        lvLeadershipExperience.setAdapter(adapter);
         intent = new Intent(this, FactorsActivity.class);
         lvLeadershipExperience.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

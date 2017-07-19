@@ -23,6 +23,7 @@ public class EmpowermentActivity extends AppCompatActivity {
     private int[] scores;
     private Intent intent;
     private int[] empowermentScores = {0,1,2,3,4,5,6,7,8,9};
+    private int checkedId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,8 +47,8 @@ public class EmpowermentActivity extends AppCompatActivity {
 
     public void showManagementList(){
         lvEmpowerment = (ListView) findViewById(R.id.lvEmpowermentList);
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,R.layout.activity_listview,empowermentOptions);
-        lvEmpowerment.setAdapter(adapter);
+        CustomListAdapterEmpowerment customListAdapterEmpowerment = new CustomListAdapterEmpowerment(this, empowermentOptions, checkedId);
+        lvEmpowerment.setAdapter(customListAdapterEmpowerment);
         intent = new Intent(this, FactorsActivity.class);
         lvEmpowerment.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
