@@ -65,7 +65,7 @@ public class FactorsActivity extends AppCompatActivity {
     }
 
     public void setActionBarTitle(){
-        getSupportActionBar().setTitle("Factors");
+        getSupportActionBar().setTitle("Seniority App Belatrix");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 

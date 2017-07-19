@@ -51,8 +51,17 @@ public class FormalEducationActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         //return super.onOptionsItemSelected(item);
-        if (item.getItemId() == R.id.helpButton){
-            startActivity(new Intent(this,FormalEducationHelpActivity.class));
+        switch (item.getItemId()) {
+            case R.id.helpButton:
+                startActivity(new Intent(this,FormalEducationHelpActivity.class));
+                break;
+
+            case android.R.id.home:
+                onBackPressed();
+                break;
+
+            default:
+                return super.onOptionsItemSelected(item);
         }
         return true;
     }
