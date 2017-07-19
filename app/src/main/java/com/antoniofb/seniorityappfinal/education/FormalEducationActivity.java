@@ -1,5 +1,6 @@
 package com.antoniofb.seniorityappfinal.education;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -71,32 +72,37 @@ public class FormalEducationActivity extends AppCompatActivity {
                 if (position == 0){
                     educationScore = educationScores[0] * educationPercentage;
                     scores[0] = educationScore;
-                    intent.putExtra("FEO", scores);
-                    startActivity(intent);
+                    intent.putExtra("FEO", educationOptions[0] );
+                    setResult(Activity.RESULT_OK,intent);
+                    finish();
                 }
                 if (position == 1){
                     educationScore = educationScores[1] * educationPercentage;
                     scores[0] = educationScore;
-                    intent.putExtra("FEO", scores);
-                    startActivity(intent);
+                    intent.putExtra("FEO", educationOptions[1] );
+                    setResult(Activity.RESULT_OK,intent);
+                    finish();
                 }
                 if (position == 2){
                     educationScore = educationScores[2] * educationPercentage;
                     scores[0] = educationScore;
-                    intent.putExtra("FEO", scores);
-                    startActivity(intent);
+                    intent.putExtra("FEO", educationOptions[2] );
+                    setResult(Activity.RESULT_OK,intent);
+                    finish();
                 }
                 if (position == 3){
                     educationScore = educationScores[3] * educationPercentage;
                     scores[0] = educationScore;
-                    intent.putExtra("FEO", scores);
-                    startActivity(intent);
+                    intent.putExtra("FEO", educationOptions[3] );
+                    setResult(Activity.RESULT_OK,intent);
+                    finish();
                 }
                 if (position == 4){
                     educationScore = educationScores[4] * educationPercentage;
                     scores[0] = educationScore;
-                    intent.putExtra("FEO", scores);
-                    startActivity(intent);
+                    intent.putExtra("FEO", educationOptions[4] );
+                    setResult(Activity.RESULT_OK,intent);
+                    finish();
                 }
             }
         });

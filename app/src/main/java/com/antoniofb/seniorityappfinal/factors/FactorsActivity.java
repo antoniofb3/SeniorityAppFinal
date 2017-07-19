@@ -1,9 +1,11 @@
 package com.antoniofb.seniorityappfinal.factors;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -43,12 +45,15 @@ public class FactorsActivity extends AppCompatActivity {
             R.drawable.empowerment_icon
     };
     private int arrowId = R.drawable.arrow_icon;
+    private Intent intent;
+    private CustomListAdapterFactors customListAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_factors);
         setActionBarTitle();
+        setupGUI();
         //showEmployeeData();
         showFactorsList();
     }
@@ -64,6 +69,10 @@ public class FactorsActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
+    public void setupGUI(){
+        lvFactors = (ListView) findViewById(R.id.lvFactorsList);
+    }
+
     public void showEmployeeData(){
         Bundle bundle = getIntent().getExtras();
         String[] empData = {bundle.getString("Name"), bundle.getString("Job"), bundle.getString("Seniority")};
@@ -76,38 +85,52 @@ public class FactorsActivity extends AppCompatActivity {
     }
 
     private void showFactorsList(){
-        CustomListAdapterFactors customListAdapter = new CustomListAdapterFactors(this, factors, factorsChosen, imagesIds, arrowId);
-        lvFactors = (ListView) findViewById(R.id.lvFactorsList);
+        customListAdapter = new CustomListAdapterFactors(this, factors, factorsChosen, imagesIds, arrowId);
         lvFactors.setAdapter(customListAdapter);
         lvFactors.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                 if (position == 0){
-                    startActivity(new Intent(FactorsActivity.this, FormalEducationActivity.class));
+                    intent = new Intent(FactorsActivity.this,FormalEducationActivity.class);
+                    startActivityForResult(intent, 1);
                 }
                 if (position == 1){
-                    startActivity(new Intent(FactorsActivity.this, ExperienceActivity.class));
+                    intent = new Intent(FactorsActivity.this,ExperienceActivity.class);
+                    startActivityForResult(intent, 2);
                 }
                 if (position == 2){
-                    startActivity(new Intent(FactorsActivity.this, ManagementActivity.class));
+                    intent = new Intent(FactorsActivity.this,ManagementActivity.class);
+                    startActivityForResult(intent, 3);
                 }
                 if (position == 3){
-                    startActivity(new Intent(FactorsActivity.this, CommunicationActivity.class));
+                    intent = new Intent(FactorsActivity.this,CommunicationActivity.class);
+                    startActivityForResult(intent, 4);
                 }
                 if (position == 4){
-                    startActivity(new Intent(FactorsActivity.this, TechnicalSkillsActivity.class));
+                    intent = new Intent(FactorsActivity.this,TechnicalSkillsActivity.class);
+                    startActivityForResult(intent, 5);
                 }
                 if (position == 5){
-                    startActivity(new Intent(FactorsActivity.this, LeadershipExperienceActivity.class));
+                    intent = new Intent(FactorsActivity.this,LeadershipExperienceActivity.class);
+                    startActivityForResult(intent, 6);
                 }
                 if (position == 6){
-                    startActivity(new Intent(FactorsActivity.this, EmpowermentActivity.class));
+                    intent = new Intent(FactorsActivity.this,EmpowermentActivity.class);
+                    startActivityForResult(intent, 7);
                 }
             }
         });
     }
 
-    public void checkValue(){
-
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        //super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 1){
+            if (resultCode == Activity.RESULT_OK){
+                String formalEducationOption = data.getStringExtra("FEO");
+                factorsChosen[0] = formalEducationOption;
+                customListAdapter.notifyDataSetChanged();
+            }
+        }
     }
 }
