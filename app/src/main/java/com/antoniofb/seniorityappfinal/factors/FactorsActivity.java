@@ -134,7 +134,7 @@ public class FactorsActivity extends AppCompatActivity {
         }
         if (requestCode == 2){
             if (resultCode == Activity.RESULT_OK){
-                String previousExperienceOption = data.getStringExtra("PE");
+                String previousExperienceOption = data.getStringExtra("PEO");
                 factorsChosen[1] = previousExperienceOption;
                 customListAdapter.notifyDataSetChanged();
             }
@@ -143,6 +143,20 @@ public class FactorsActivity extends AppCompatActivity {
             if (resultCode == Activity.RESULT_OK){
                 String managementOption = data.getStringExtra("MO");
                 factorsChosen[2] = managementOption;
+                customListAdapter.notifyDataSetChanged();
+            }
+        }
+        if (requestCode == 4){
+            if (resultCode == Activity.RESULT_OK){
+                String communicationOption = data.getStringExtra("CO");
+                factorsChosen[3] = communicationOption;
+                customListAdapter.notifyDataSetChanged();
+            }
+        }
+        if (requestCode == 5){
+            if (resultCode == Activity.RESULT_OK){
+                String technicalSkillsOption = data.getStringExtra("TSO");
+                factorsChosen[4] = technicalSkillsOption;
                 customListAdapter.notifyDataSetChanged();
             }
         }

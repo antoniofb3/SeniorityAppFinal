@@ -63,49 +63,49 @@ public class ExperienceActivity extends AppCompatActivity {
                 if (position == 0){
                     experienceScore = experienceScores[0] * experiencePercentage;
                     scores[1] = experienceScore;
-                    intent.putExtra("PE", workExperienceOptions[0] );
+                    intent.putExtra("PEO", workExperienceOptions[0] );
                     setResult(Activity.RESULT_OK,intent);
                     finish();
                 }
                 if (position == 1){
                     experienceScore = experienceScores[1] * experiencePercentage;
                     scores[1] = experienceScore;
-                    intent.putExtra("PE", workExperienceOptions[1] );
+                    intent.putExtra("PEO", workExperienceOptions[1] );
                     setResult(Activity.RESULT_OK,intent);
                     finish();
                 }
                 if (position == 2){
                     experienceScore = experienceScores[2] * experiencePercentage;
                     scores[1] = experienceScore;
-                    intent.putExtra("PE", workExperienceOptions[2] );
+                    intent.putExtra("PEO", workExperienceOptions[2] );
                     setResult(Activity.RESULT_OK,intent);
                     finish();
                 }
                 if (position == 3){
                     experienceScore = experienceScores[3] * experiencePercentage;
                     scores[1] = experienceScore;
-                    intent.putExtra("PE", workExperienceOptions[3] );
+                    intent.putExtra("PEO", workExperienceOptions[3] );
                     setResult(Activity.RESULT_OK,intent);
                     finish();
                 }
                 if (position == 4){
                     experienceScore = experienceScores[4] * experiencePercentage;
                     scores[1] = experienceScore;
-                    intent.putExtra("PE", workExperienceOptions[4] );
+                    intent.putExtra("PEO", workExperienceOptions[4] );
                     setResult(Activity.RESULT_OK,intent);
                     finish();
                 }
                 if (position == 5){
                     experienceScore = experienceScores[5] * experiencePercentage;
                     scores[1] = experienceScore;
-                    intent.putExtra("PE", workExperienceOptions[5] );
+                    intent.putExtra("PEO", workExperienceOptions[5] );
                     setResult(Activity.RESULT_OK,intent);
                     finish();
                 }
                 if (position == 6){
                     experienceScore = experienceScores[6] * experiencePercentage;
                     scores[1] = experienceScore;
-                    intent.putExtra("PE", workExperienceOptions[6] );
+                    intent.putExtra("PEO", workExperienceOptions[6] );
                     setResult(Activity.RESULT_OK,intent);
                     finish();
                 }

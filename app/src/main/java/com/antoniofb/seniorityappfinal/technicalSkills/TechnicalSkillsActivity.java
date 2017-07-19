@@ -1,5 +1,6 @@
 package com.antoniofb.seniorityappfinal.technicalSkills;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -16,7 +17,14 @@ import com.antoniofb.seniorityappfinal.leadershipExperience.LeadershipExperience
 
 public class TechnicalSkillsActivity extends AppCompatActivity {
 
-    private String[] skills = {"Little knowledge", "Knows some programming language", "Knows and uses some of the best know namespaces", "Has a good knowledge of the namespaces", "Has a sustained and predictable productivity", "Is highly predictable with a sustained productivity"};
+    private String[] technicalSkillsOptions = {
+            "Little knowledge",
+            "Knows some programming language",
+            "Knows and uses some of the best know namespaces",
+            "Has a good knowledge of the namespaces",
+            "Has a sustained and predictable productivity",
+            "Is highly predictable with a sustained productivity"
+    };
     private ListView lvSkills;
     private int skillsScore = 1, skillsPercentage = 20;
     private int[] scores;
@@ -45,48 +53,53 @@ public class TechnicalSkillsActivity extends AppCompatActivity {
 
     public void showManagementList(){
         lvSkills = (ListView) findViewById(R.id.lvSkillsList);
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,R.layout.activity_listview,skills);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,R.layout.activity_listview,technicalSkillsOptions);
         lvSkills.setAdapter(adapter);
-        intent = new Intent(this, LeadershipExperienceActivity.class);
+        intent = new Intent(this, FactorsActivity.class);
         lvSkills.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 if (position == 0){
                     skillsScore = technicalSkillsScores[0] * skillsPercentage;
                     scores[4] = skillsScore;
-                    intent.putExtra("LK", scores);
-                    startActivity(intent);
-                    //startActivity(new Intent(ManagementActivity.this,CommunicationActivity.class));
+                    intent.putExtra("TSO", technicalSkillsOptions[0] );
+                    setResult(Activity.RESULT_OK,intent);
+                    finish();
                 }
                 if (position == 1){
                     skillsScore = technicalSkillsScores[1] * skillsPercentage;
                     scores[4] = skillsScore;
-                    intent.putExtra("LK", scores);
-                    startActivity(intent);
+                    intent.putExtra("TSO", technicalSkillsOptions[1] );
+                    setResult(Activity.RESULT_OK,intent);
+                    finish();
                 }
                 if (position == 2){
                     skillsScore = technicalSkillsScores[2] * skillsPercentage;
                     scores[4] = skillsScore;
-                    intent.putExtra("LK", scores);
-                    startActivity(intent);
+                    intent.putExtra("TSO", technicalSkillsOptions[2] );
+                    setResult(Activity.RESULT_OK,intent);
+                    finish();
                 }
                 if (position == 3){
                     skillsScore = technicalSkillsScores[3] * skillsPercentage;
                     scores[4] = skillsScore;
-                    intent.putExtra("LK", scores);
-                    startActivity(intent);
+                    intent.putExtra("TSO", technicalSkillsOptions[3] );
+                    setResult(Activity.RESULT_OK,intent);
+                    finish();
                 }
                 if (position == 4){
                     skillsScore = technicalSkillsScores[4] * skillsPercentage;
                     scores[4] = skillsScore;
-                    intent.putExtra("LK", scores);
-                    startActivity(intent);
+                    intent.putExtra("TSO", technicalSkillsOptions[4] );
+                    setResult(Activity.RESULT_OK,intent);
+                    finish();
                 }
                 if (position == 5){
                     skillsScore = technicalSkillsScores[5] * skillsPercentage;
                     scores[4] = skillsScore;
-                    intent.putExtra("LK", scores);
-                    startActivity(intent);
+                    intent.putExtra("TSO", technicalSkillsOptions[5] );
+                    setResult(Activity.RESULT_OK,intent);
+                    finish();
                 }
             }
         });
