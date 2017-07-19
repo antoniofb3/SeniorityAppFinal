@@ -1,5 +1,6 @@
 package com.antoniofb.seniorityappfinal.experience;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -32,6 +33,7 @@ public class ExperienceActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_experience);
         setActionBarTitle();
+        setupGUI();
         showExperienceList();
         acumulateScores();
     }
@@ -42,6 +44,10 @@ public class ExperienceActivity extends AppCompatActivity {
         return true;
     }
 
+    public void setupGUI(){
+        lvExperience = (ListView) findViewById(R.id.lvExperienceList);
+    }
+
     public void setActionBarTitle(){
         getSupportActionBar().setTitle("Experience Screen");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -49,53 +55,59 @@ public class ExperienceActivity extends AppCompatActivity {
 
     public void showExperienceList(){
         CustomListAdapterWorkExperience customListAdapterWorkExperience = new CustomListAdapterWorkExperience(this,workExperienceOptions, informationId, arrowId );
-        lvExperience = (ListView) findViewById(R.id.lvExperienceList);
         lvExperience.setAdapter(customListAdapterWorkExperience);
-        intent = new Intent(this, ManagementActivity.class);
+        intent = new Intent(this, FactorsActivity.class);
         lvExperience.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 if (position == 0){
                     experienceScore = experienceScores[0] * experiencePercentage;
                     scores[1] = experienceScore;
-                    intent.putExtra("WOE", scores);
-                    startActivity(intent);
+                    intent.putExtra("PE", workExperienceOptions[0] );
+                    setResult(Activity.RESULT_OK,intent);
+                    finish();
                 }
                 if (position == 1){
                     experienceScore = experienceScores[1] * experiencePercentage;
                     scores[1] = experienceScore;
-                    intent.putExtra("WOE", scores);
-                    startActivity(intent);
+                    intent.putExtra("PE", workExperienceOptions[1] );
+                    setResult(Activity.RESULT_OK,intent);
+                    finish();
                 }
                 if (position == 2){
                     experienceScore = experienceScores[2] * experiencePercentage;
                     scores[1] = experienceScore;
-                    intent.putExtra("WOE", scores);
-                    startActivity(intent);
+                    intent.putExtra("PE", workExperienceOptions[2] );
+                    setResult(Activity.RESULT_OK,intent);
+                    finish();
                 }
                 if (position == 3){
                     experienceScore = experienceScores[3] * experiencePercentage;
                     scores[1] = experienceScore;
-                    intent.putExtra("WOE", scores);
-                    startActivity(intent);
+                    intent.putExtra("PE", workExperienceOptions[3] );
+                    setResult(Activity.RESULT_OK,intent);
+                    finish();
                 }
                 if (position == 4){
                     experienceScore = experienceScores[4] * experiencePercentage;
                     scores[1] = experienceScore;
-                    intent.putExtra("WOE", scores);
-                    startActivity(intent);
+                    intent.putExtra("PE", workExperienceOptions[4] );
+                    setResult(Activity.RESULT_OK,intent);
+                    finish();
                 }
                 if (position == 5){
                     experienceScore = experienceScores[5] * experiencePercentage;
                     scores[1] = experienceScore;
-                    intent.putExtra("WOE", scores);
-                    startActivity(intent);
+                    intent.putExtra("PE", workExperienceOptions[5] );
+                    setResult(Activity.RESULT_OK,intent);
+                    finish();
                 }
                 if (position == 6){
                     experienceScore = experienceScores[6] * experiencePercentage;
                     scores[1] = experienceScore;
-                    intent.putExtra("WOE", scores);
-                    startActivity(intent);
+                    intent.putExtra("PE", workExperienceOptions[6] );
+                    setResult(Activity.RESULT_OK,intent);
+                    finish();
                 }
             }
         });

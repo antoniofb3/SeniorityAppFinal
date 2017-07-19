@@ -1,5 +1,6 @@
 package com.antoniofb.seniorityappfinal.management;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -54,45 +55,51 @@ public class ManagementActivity extends AppCompatActivity {
         CustomListAdapterManagement customListAdapterManagement = new CustomListAdapterManagement(this,managementOptions,informationId,arrowId);
         lvManagement = (ListView) findViewById(R.id.lvManagementList);
         lvManagement.setAdapter(customListAdapterManagement);
-        intent = new Intent(this, CommunicationActivity.class);
+        intent = new Intent(this, FactorsActivity.class);
         lvManagement.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 if (position == 0){
                     managementScore = managementScores[0] * managementPercentage;
                     scores[2] = managementScore;
-                    intent.putExtra("TAO", scores);
-                    startActivity(intent);
+                    intent.putExtra("MO", managementOptions[0] );
+                    setResult(Activity.RESULT_OK,intent);
+                    finish();
                 }
                 if (position == 1){
                     managementScore = managementScores[1] * managementPercentage;
                     scores[2] = managementScore;
-                    intent.putExtra("TAO", scores);
-                    startActivity(intent);
+                    intent.putExtra("MO", managementOptions[1] );
+                    setResult(Activity.RESULT_OK,intent);
+                    finish();
                 }
                 if (position == 2){
                     managementScore = managementScores[2] * managementPercentage;
                     scores[2] = managementScore;
-                    intent.putExtra("TAO", scores);
-                    startActivity(intent);
+                    intent.putExtra("MO", managementOptions[2] );
+                    setResult(Activity.RESULT_OK,intent);
+                    finish();
                 }
                 if (position == 3){
                     managementScore = managementScores[3] * managementPercentage;
                     scores[2] = managementScore;
-                    intent.putExtra("TAO", scores);
-                    startActivity(intent);
+                    intent.putExtra("MO", managementOptions[3] );
+                    setResult(Activity.RESULT_OK,intent);
+                    finish();
                 }
                 if (position == 4){
                     managementScore = managementScores[4] * managementPercentage;
                     scores[2] = managementScore;
-                    intent.putExtra("TAO", scores);
-                    startActivity(intent);
+                    intent.putExtra("MO", managementOptions[4] );
+                    setResult(Activity.RESULT_OK,intent);
+                    finish();
                 }
                 if (position == 5){
                     managementScore = managementScores[5] * managementPercentage;
                     scores[2] = managementScore;
-                    intent.putExtra("TAO", scores);
-                    startActivity(intent);
+                    intent.putExtra("MO", managementOptions[5] );
+                    setResult(Activity.RESULT_OK,intent);
+                    finish();
                 }
             }
         });

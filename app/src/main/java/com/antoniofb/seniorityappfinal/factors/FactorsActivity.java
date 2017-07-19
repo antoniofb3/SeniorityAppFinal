@@ -132,5 +132,19 @@ public class FactorsActivity extends AppCompatActivity {
                 customListAdapter.notifyDataSetChanged();
             }
         }
+        if (requestCode == 2){
+            if (resultCode == Activity.RESULT_OK){
+                String previousExperienceOption = data.getStringExtra("PE");
+                factorsChosen[1] = previousExperienceOption;
+                customListAdapter.notifyDataSetChanged();
+            }
+        }
+        if (requestCode == 3){
+            if (resultCode == Activity.RESULT_OK){
+                String managementOption = data.getStringExtra("MO");
+                factorsChosen[2] = managementOption;
+                customListAdapter.notifyDataSetChanged();
+            }
+        }
     }
 }

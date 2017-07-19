@@ -31,6 +31,7 @@ public class FormalEducationActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_formal_education);
         setActionBarTitle();
+        setupGUI();
         showEducationList();
     }
 
@@ -56,6 +57,10 @@ public class FormalEducationActivity extends AppCompatActivity {
         return true;
     }
 
+    public void setupGUI(){
+        lvEducationOptions = (ListView) findViewById(R.id.lvFormalEducationList);
+    }
+
     public void setActionBarTitle(){
         getSupportActionBar().setTitle("Formal Education");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -63,7 +68,6 @@ public class FormalEducationActivity extends AppCompatActivity {
 
     public void showEducationList(){
         CustomListAdapterFormalEducation customListAdapterFormalEducation = new CustomListAdapterFormalEducation(this, educationOptions, checkedId);
-        lvEducationOptions = (ListView) findViewById(R.id.lvFormalEducationList);
         lvEducationOptions.setAdapter(customListAdapterFormalEducation);
         intent = new Intent(this,FactorsActivity.class);
         lvEducationOptions.setOnItemClickListener(new AdapterView.OnItemClickListener() {
