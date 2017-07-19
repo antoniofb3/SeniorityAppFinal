@@ -24,7 +24,7 @@ public class FormalEducationActivity extends AppCompatActivity {
     private int[] scores = new int[7];
     private Intent intent;
     private int[] educationScores = {1,2,3,5,6};
-    private int checkedId = R.drawable.checked_icon;
+    private int checkedId;// = R.drawable.checked_icon;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

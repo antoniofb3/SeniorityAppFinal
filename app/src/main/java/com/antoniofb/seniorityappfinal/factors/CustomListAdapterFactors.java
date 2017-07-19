@@ -41,8 +41,9 @@ public class CustomListAdapterFactors extends ArrayAdapter<String> {
         ImageView imageView = (ImageView) rowView.findViewById(R.id.iconFactor);
         ImageView imageView2 = (ImageView) rowView.findViewById(R.id.arrowIcon);
 
-        txtTitle.setText(factors[position]);//itemname es un array de strings, donde va estar el texto de mis factores
+        txtTitle.setText(factors[position]);
         txtSubtile.setText(factorsChosen[position]);
+        txtSubtile.setVisibility(view.GONE);
         imageView.setImageResource(imagesIds[position]);
         imageView2.setImageResource(arrowId);
         return rowView;

@@ -26,7 +26,7 @@ public class ExperienceActivity extends AppCompatActivity {
     private int[] scores;
     private Intent intent;
     private int[] experienceScores = {0,1,2,3,4,5,6,7,8,9,10};
-    private int arrowId = R.drawable.arrow_icon;
+    private int arrowId;// = R.drawable.arrow_icon;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

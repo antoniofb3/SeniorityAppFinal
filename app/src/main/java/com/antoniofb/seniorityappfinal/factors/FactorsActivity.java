@@ -127,6 +127,7 @@ public class FactorsActivity extends AppCompatActivity {
         //super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == 1){
             if (resultCode == Activity.RESULT_OK){
+
                 String formalEducationOption = data.getStringExtra("FEO");
                 factorsChosen[0] = formalEducationOption;
                 customListAdapter.notifyDataSetChanged();
