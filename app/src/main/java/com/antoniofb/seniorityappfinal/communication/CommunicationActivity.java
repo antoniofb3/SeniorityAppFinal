@@ -30,7 +30,7 @@ public class CommunicationActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_communication);
         setActionBarTitle();
-        showManagementList2();
+        showManagementList();
         acumulateScores();
     }
 
@@ -45,64 +45,10 @@ public class CommunicationActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
-    public void showManagementList2(){
+    public void showManagementList(){
         lvCommunication = (ListView) findViewById(R.id.lvCommunicationList);
         CustomListAdapterCommunication customListAdapterCommunication = new CustomListAdapterCommunication(this, communicationOptions, checkedId);
         lvCommunication.setAdapter(customListAdapterCommunication);
-        intent = new Intent(this, FactorsActivity.class);
-        lvCommunication.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                if (position == 0){
-                    communicationScore = communicationScores[0] * communicationPercentage;
-                    scores[3] = communicationScore;
-                    intent.putExtra("CO", communicationOptions[0] );
-                    setResult(Activity.RESULT_OK,intent);
-                    finish();
-                }
-                if (position == 1){
-                    communicationScore = communicationScores[1] * communicationPercentage;
-                    scores[3] = communicationScore;
-                    intent.putExtra("CO", communicationOptions[1] );
-                    setResult(Activity.RESULT_OK,intent);
-                    finish();
-                }
-                if (position == 2){
-                    communicationScore = communicationScores[2] * communicationPercentage;
-                    scores[3] = communicationScore;
-                    intent.putExtra("CO", communicationOptions[2] );
-                    setResult(Activity.RESULT_OK,intent);
-                    finish();
-                }
-                if (position == 3){
-                    communicationScore = communicationScores[3] * communicationPercentage;
-                    scores[3] = communicationScore;
-                    intent.putExtra("CO", communicationOptions[3] );
-                    setResult(Activity.RESULT_OK,intent);
-                    finish();
-                }
-                if (position == 4){
-                    communicationScore = communicationScores[4] * communicationPercentage;
-                    scores[3] = communicationScore;
-                    intent.putExtra("CO", communicationOptions[4] );
-                    setResult(Activity.RESULT_OK,intent);
-                    finish();
-                }
-                if (position ==5){
-                    communicationScore = communicationScores[5] * communicationPercentage;
-                    scores[3] = communicationScore;
-                    intent.putExtra("CO", communicationOptions[5] );
-                    setResult(Activity.RESULT_OK,intent);
-                    finish();
-                }
-            }
-        });
-    }
-
-    public void showManagementList(){
-        lvCommunication = (ListView) findViewById(R.id.lvCommunicationList);
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,R.layout.activity_listview,communicationOptions);
-        lvCommunication.setAdapter(adapter);
         intent = new Intent(this, FactorsActivity.class);
         lvCommunication.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

@@ -43,7 +43,7 @@ public class CustomListAdapterFactors extends ArrayAdapter<String> {
 
         txtTitle.setText(factors[position]);
         txtSubtile.setText(factorsChosen[position]);
-        txtSubtile.setVisibility(view.GONE);
+        //txtSubtile.setVisibility(view.GONE);
         imageView.setImageResource(imagesIds[position]);
         imageView2.setImageResource(arrowId);
         return rowView;
