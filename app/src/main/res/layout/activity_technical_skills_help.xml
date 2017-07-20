@@ -5,14 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.antoniofb.seniorityappfinal.communication.CommunicationHelpActivity">
+    tools:context="com.antoniofb.seniorityappfinal.technicalSkills.TechnicalSkillsHelpActivity">
 
     <TextView
         android:id="@+id/tvFEHelp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAppearance="?android:textAppearanceMedium"
-        android:text="Help screen for communication"
+        android:text="Help screen for technical Skills"
         android:textStyle="bold"/>
 
 </LinearLayout>

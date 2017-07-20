@@ -28,7 +28,8 @@
         <activity android:name=".education.FormalEducationHelpActivity" />
         <activity android:name=".experience.PreviousExperienceHelpActivity" />
         <activity android:name=".management.ManagementHelpActivity" />
-        <activity android:name=".communication.CommunicationHelpActivity"></activity>
+        <activity android:name=".communication.CommunicationHelpActivity" />
+        <activity android:name=".technicalSkills.TechnicalSkillsHelpActivity"></activity>
     </application>
 
 </manifest>
