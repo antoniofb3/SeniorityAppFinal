@@ -27,7 +27,8 @@
         <activity android:name=".empowerment.EmpowermentActivity" />
         <activity android:name=".education.FormalEducationHelpActivity" />
         <activity android:name=".experience.PreviousExperienceHelpActivity" />
-        <activity android:name=".management.ManagementHelpActivity"></activity>
+        <activity android:name=".management.ManagementHelpActivity" />
+        <activity android:name=".communication.CommunicationHelpActivity"></activity>
     </application>
 
 </manifest>
