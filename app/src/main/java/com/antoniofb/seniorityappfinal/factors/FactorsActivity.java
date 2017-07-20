@@ -74,6 +74,7 @@ public class FactorsActivity extends AppCompatActivity {
     }
 
     public void showEmployeeData(){
+        /*
         Bundle bundle = getIntent().getExtras();
         String[] empData = {bundle.getString("Name"), bundle.getString("Job"), bundle.getString("Seniority")};
         tvEmpData = (TextView) findViewById(R.id.tvEmployeeName);
@@ -82,6 +83,7 @@ public class FactorsActivity extends AppCompatActivity {
         tvEmpData.setText(empData[1]);
         tvEmpData = (TextView) findViewById(R.id.tvEmployeeSeniority);
         tvEmpData.setText(empData[2]);
+        */
     }
 
     private void showFactorsList(){
