@@ -6,6 +6,8 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -19,6 +21,7 @@ import com.antoniofb.seniorityappfinal.empowerment.EmpowermentActivity;
 import com.antoniofb.seniorityappfinal.experience.ExperienceActivity;
 import com.antoniofb.seniorityappfinal.leadershipExperience.LeadershipExperienceActivity;
 import com.antoniofb.seniorityappfinal.management.ManagementActivity;
+import com.antoniofb.seniorityappfinal.results.SummaryActivity;
 import com.antoniofb.seniorityappfinal.technicalSkills.TechnicalSkillsActivity;
 
 public class FactorsActivity extends AppCompatActivity {
@@ -61,6 +64,33 @@ public class FactorsActivity extends AppCompatActivity {
     @Override
     public boolean onSupportNavigateUp() {
         finish();
+        return true;
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        //return super.onCreateOptionsMenu(menu);
+        getMenuInflater().inflate(R.menu.menu_factors, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        //return super.onOptionsItemSelected(item);
+        switch (item.getItemId()) {
+            case R.id.calculateButton:
+                if (factorsChosen != null) {
+                    startActivity(new Intent(this, SummaryActivity.class));
+                }
+                break;
+
+            case android.R.id.home:
+                onBackPressed();
+                break;
+
+            default:
+                return super.onOptionsItemSelected(item);
+        }
         return true;
     }
 
