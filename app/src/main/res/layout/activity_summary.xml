@@ -16,7 +16,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAppearance="?android:textAppearanceMedium"
-        android:text="This is the Summary Results for this employee: "/>
+        android:text="This is the Summary Results for this employee: "
+        android:textStyle="bold"/>
 
     <ListView
         android:id="@+id/lvResultsList"

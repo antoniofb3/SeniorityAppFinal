@@ -30,9 +30,15 @@ public class SummaryActivity extends AppCompatActivity {
         registerResults();
     }
 
+    @Override
+    public boolean onSupportNavigateUp() {
+        finish();
+        return true;
+    }
+
     public void setActionBarTitle(){
-        ActionBar ab = getSupportActionBar();
-        ab.setTitle("Summary");
+        getSupportActionBar().setTitle("Summary");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     public void showSummaryResults(){

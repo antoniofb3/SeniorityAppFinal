@@ -28,9 +28,15 @@ public class ResultsActivity extends AppCompatActivity {
         returnToRegistration();
     }
 
+    @Override
+    public boolean onSupportNavigateUp() {
+        finish();
+        return true;
+    }
+
     public void setActionBarTitle(){
-        ActionBar ab = getSupportActionBar();
-        ab.setTitle("Seniority Screen");
+        getSupportActionBar().setTitle("Seniority Results");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     public void showSeniority(){
