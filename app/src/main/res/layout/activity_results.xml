@@ -13,8 +13,8 @@
 
     <ImageView
         android:id="@+id/smallLogoBelatrixsf"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:src="@drawable/small_logo_belatrixsf"
         android:layout_gravity="center"/>
 
@@ -22,7 +22,7 @@
         android:id="@+id/tvResults"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:textAppearanceMedium"
+        android:textAppearance="?android:textAppearanceLarge"
         android:text="The employee got the following score: "
         android:layout_marginTop="10dp"/>
 
