@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -21,7 +22,6 @@ public class FormalEducationActivity extends AppCompatActivity {
     private String[] educationOptions = {"Incomplete Terciary Education", "Incomplete Bachelor", "Bachelor", "Graduated + Especializated", "Master"};
     private ListView lvEducationOptions;
     private int educationScore = 0, educationPercentage = 5;
-    private int[] scores = new int[7];
     private Intent intent;
     private int[] educationScores = {1,2,3,5,6};
     private int checkedId;// = R.drawable.checked_icon;
@@ -84,35 +84,35 @@ public class FormalEducationActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                 if (position == 0){
                     educationScore = educationScores[0] * educationPercentage;
-                    scores[0] = educationScore;
+                    intent.putExtra("FEON", educationScore);
                     intent.putExtra("FEO", educationOptions[0] );
                     setResult(Activity.RESULT_OK,intent);
                     finish();
                 }
                 if (position == 1){
                     educationScore = educationScores[1] * educationPercentage;
-                    scores[0] = educationScore;
+                    intent.putExtra("FEON", educationScore);
                     intent.putExtra("FEO", educationOptions[1] );
                     setResult(Activity.RESULT_OK,intent);
                     finish();
                 }
                 if (position == 2){
                     educationScore = educationScores[2] * educationPercentage;
-                    scores[0] = educationScore;
+                    intent.putExtra("FEON", educationScore);
                     intent.putExtra("FEO", educationOptions[2] );
                     setResult(Activity.RESULT_OK,intent);
                     finish();
                 }
                 if (position == 3){
                     educationScore = educationScores[3] * educationPercentage;
-                    scores[0] = educationScore;
+                    intent.putExtra("FEON", educationScore);
                     intent.putExtra("FEO", educationOptions[3] );
                     setResult(Activity.RESULT_OK,intent);
                     finish();
                 }
                 if (position == 4){
                     educationScore = educationScores[4] * educationPercentage;
-                    scores[0] = educationScore;
+                    intent.putExtra("FEON", educationScore);
                     intent.putExtra("FEO", educationOptions[4] );
                     setResult(Activity.RESULT_OK,intent);
                     finish();

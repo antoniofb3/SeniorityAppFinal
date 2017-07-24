@@ -13,6 +13,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.antoniofb.seniorityappfinal.R;
 import com.antoniofb.seniorityappfinal.communication.CommunicationActivity;
@@ -23,6 +24,8 @@ import com.antoniofb.seniorityappfinal.leadershipExperience.LeadershipExperience
 import com.antoniofb.seniorityappfinal.management.ManagementActivity;
 import com.antoniofb.seniorityappfinal.results.SummaryActivity;
 import com.antoniofb.seniorityappfinal.technicalSkills.TechnicalSkillsActivity;
+
+import java.util.ArrayList;
 
 public class FactorsActivity extends AppCompatActivity {
 
@@ -50,6 +53,8 @@ public class FactorsActivity extends AppCompatActivity {
     private int arrowId = R.drawable.arrow_icon;
     private Intent intent;
     private CustomListAdapterFactors customListAdapter;
+    private int[] scoresFactors = new int[7]; //private Integer[] scoresFactors = new Integer[7];
+    private int scoreFactor = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,9 +84,7 @@ public class FactorsActivity extends AppCompatActivity {
         //return super.onOptionsItemSelected(item);
         switch (item.getItemId()) {
             case R.id.calculateButton:
-                if (factorsChosen != null) {
-                    startActivity(new Intent(this, SummaryActivity.class));
-                }
+                saveScoresToSummary();
                 break;
 
             case android.R.id.home:
@@ -95,7 +98,7 @@ public class FactorsActivity extends AppCompatActivity {
     }
 
     public void setActionBarTitle(){
-        getSupportActionBar().setTitle("Seniority App Belatrix");
+        getSupportActionBar().setTitle("Seniority Belatrix");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
@@ -159,7 +162,7 @@ public class FactorsActivity extends AppCompatActivity {
         //super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == 1){
             if (resultCode == Activity.RESULT_OK){
-
+                scoresFactors[0] = data.getIntExtra("FEON",scoreFactor);
                 String formalEducationOption = data.getStringExtra("FEO");
                 factorsChosen[0] = formalEducationOption;
                 customListAdapter.notifyDataSetChanged();
@@ -167,6 +170,7 @@ public class FactorsActivity extends AppCompatActivity {
         }
         if (requestCode == 2){
             if (resultCode == Activity.RESULT_OK){
+                scoresFactors[1] = data.getIntExtra("PEON",scoreFactor);
                 String previousExperienceOption = data.getStringExtra("PEO");
                 factorsChosen[1] = previousExperienceOption;
                 customListAdapter.notifyDataSetChanged();
@@ -174,6 +178,7 @@ public class FactorsActivity extends AppCompatActivity {
         }
         if (requestCode == 3){
             if (resultCode == Activity.RESULT_OK){
+                scoresFactors[2] = data.getIntExtra("MON",scoreFactor);
                 String managementOption = data.getStringExtra("MO");
                 factorsChosen[2] = managementOption;
                 customListAdapter.notifyDataSetChanged();
@@ -181,6 +186,7 @@ public class FactorsActivity extends AppCompatActivity {
         }
         if (requestCode == 4){
             if (resultCode == Activity.RESULT_OK){
+                scoresFactors[3] = data.getIntExtra("CON",scoreFactor);
                 String communicationOption = data.getStringExtra("CO");
                 factorsChosen[3] = communicationOption;
                 customListAdapter.notifyDataSetChanged();
@@ -188,6 +194,7 @@ public class FactorsActivity extends AppCompatActivity {
         }
         if (requestCode == 5){
             if (resultCode == Activity.RESULT_OK){
+                scoresFactors[4] = data.getIntExtra("TSON",scoreFactor);
                 String technicalSkillsOption = data.getStringExtra("TSO");
                 factorsChosen[4] = technicalSkillsOption;
                 customListAdapter.notifyDataSetChanged();
@@ -195,6 +202,7 @@ public class FactorsActivity extends AppCompatActivity {
         }
         if (requestCode == 6){
             if (resultCode == Activity.RESULT_OK){
+                scoresFactors[5] = data.getIntExtra("LEON",scoreFactor);
                 String leadershipExperienceOption = data.getStringExtra("LEO");
                 factorsChosen[5] = leadershipExperienceOption;
                 customListAdapter.notifyDataSetChanged();
@@ -202,10 +210,19 @@ public class FactorsActivity extends AppCompatActivity {
         }
         if (requestCode == 7){
             if (resultCode == Activity.RESULT_OK){
+                scoresFactors[6] = data.getIntExtra("EON",scoreFactor);
                 String empowermentOption = data.getStringExtra("EO");
                 factorsChosen[6] = empowermentOption;
                 customListAdapter.notifyDataSetChanged();
             }
+        }
+    }
+
+    public void saveScoresToSummary(){
+        if (scoresFactors != null) {
+            intent = new Intent(this, SummaryActivity.class);
+            intent.putExtra("AllScores", scoresFactors);
+            startActivity(intent);
         }
     }
 }

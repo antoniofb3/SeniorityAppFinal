@@ -28,7 +28,6 @@ public class ManagementActivity extends AppCompatActivity {
     };
     private ListView lvManagement;
     private int managementScore = 0, managementPercentage = 20;
-    private int[] scores;
     private Intent intent;
     private int[] managementScores = {0,1,2,3,4,5,6,7,8,9,10};
     private int arrowId;// = R.drawable.arrow_icon;
@@ -39,7 +38,6 @@ public class ManagementActivity extends AppCompatActivity {
         setContentView(R.layout.activity_management);
         setActionBarTitle();
         showManagementList();
-        acumulateScores();
     }
 
     @Override
@@ -88,59 +86,47 @@ public class ManagementActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 if (position == 0){
                     managementScore = managementScores[0] * managementPercentage;
-                    scores[2] = managementScore;
+                    intent.putExtra("MON", managementScore);
                     intent.putExtra("MO", managementOptions[0] );
                     setResult(Activity.RESULT_OK,intent);
                     finish();
                 }
                 if (position == 1){
                     managementScore = managementScores[1] * managementPercentage;
-                    scores[2] = managementScore;
+                    intent.putExtra("MON", managementScore);
                     intent.putExtra("MO", managementOptions[1] );
                     setResult(Activity.RESULT_OK,intent);
                     finish();
                 }
                 if (position == 2){
                     managementScore = managementScores[2] * managementPercentage;
-                    scores[2] = managementScore;
+                    intent.putExtra("MON", managementScore);
                     intent.putExtra("MO", managementOptions[2] );
                     setResult(Activity.RESULT_OK,intent);
                     finish();
                 }
                 if (position == 3){
                     managementScore = managementScores[3] * managementPercentage;
-                    scores[2] = managementScore;
+                    intent.putExtra("MON", managementScore);
                     intent.putExtra("MO", managementOptions[3] );
                     setResult(Activity.RESULT_OK,intent);
                     finish();
                 }
                 if (position == 4){
                     managementScore = managementScores[4] * managementPercentage;
-                    scores[2] = managementScore;
+                    intent.putExtra("MON", managementScore);
                     intent.putExtra("MO", managementOptions[4] );
                     setResult(Activity.RESULT_OK,intent);
                     finish();
                 }
                 if (position == 5){
                     managementScore = managementScores[5] * managementPercentage;
-                    scores[2] = managementScore;
+                    intent.putExtra("MON", managementScore);
                     intent.putExtra("MO", managementOptions[5] );
                     setResult(Activity.RESULT_OK,intent);
                     finish();
                 }
             }
         });
-    }
-
-    public void acumulateScores(){
-        Intent intent = getIntent();
-        if (intent.hasExtra("WOE")) {
-            Bundle bundle = getIntent().getExtras();
-            scores = bundle.getIntArray("WOE");
-            Log.d("TAG", "Score from experience ->>>>: " + scores[1] + " lalala");
-        }
-        else {
-            scores = new int[7];
-        }
     }
 }

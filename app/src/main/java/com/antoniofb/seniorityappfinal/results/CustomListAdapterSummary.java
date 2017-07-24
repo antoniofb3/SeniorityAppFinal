@@ -36,7 +36,7 @@ public class CustomListAdapterSummary extends ArrayAdapter<String> {
         TextView txtTitle = (TextView) rowView.findViewById(R.id.factorName);
         TextView txtTitle2 = (TextView) rowView.findViewById(R.id.factorScore);
 
-        txtTitle.setText(factorsName[position]);//itemname es un array de strings, donde va estar el texto de mis factores
+        txtTitle.setText(factorsName[position]);
         txtTitle2.setText(Integer.toString(scores[position]));
         return rowView;
 

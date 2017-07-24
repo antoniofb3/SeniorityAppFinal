@@ -20,7 +20,6 @@ public class EmpowermentActivity extends AppCompatActivity {
     private String[] empowermentOptions = {"High", "Medium", "Low"};
     private ListView lvEmpowerment;
     private int empowermentScore = 0, empowermentPercentage = 10;
-    private int[] scores;
     private Intent intent;
     private int[] empowermentScores = {0,1,2,3,4,5,6,7,8,9};
     private int checkedId;
@@ -31,7 +30,6 @@ public class EmpowermentActivity extends AppCompatActivity {
         setContentView(R.layout.activity_empowerment);
         setActionBarTitle();
         showManagementList();
-        acumulateScores();
     }
 
     @Override
@@ -55,38 +53,26 @@ public class EmpowermentActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 if (position == 0){
                     empowermentScore = empowermentScores[0] * empowermentPercentage;
-                    scores[6] = empowermentScore;
+                    intent.putExtra("EON", empowermentScore);
                     intent.putExtra("EO", empowermentOptions[0] );
                     setResult(Activity.RESULT_OK,intent);
                     finish();
                 }
                 if (position == 1){
                     empowermentScore = empowermentScores[1] * empowermentPercentage;
-                    scores[6] = empowermentScore;
+                    intent.putExtra("EON", empowermentScore);
                     intent.putExtra("EO", empowermentOptions[1] );
                     setResult(Activity.RESULT_OK,intent);
                     finish();
                 }
                 if (position == 2){
                     empowermentScore = empowermentScores[2] * empowermentPercentage;
-                    scores[6] = empowermentScore;
+                    intent.putExtra("EON", empowermentScore);
                     intent.putExtra("EO", empowermentOptions[2] );
                     setResult(Activity.RESULT_OK,intent);
                     finish();
                 }
             }
         });
-    }
-
-    public void acumulateScores(){
-        Intent intent = getIntent();
-        if (intent.hasExtra("LEWE")) {
-            Bundle bundle = getIntent().getExtras();
-            scores = bundle.getIntArray("LEWE");
-            Log.d("TAG", "Score from leadership experience ->>>>: " + scores[5] + " lalala");
-        }
-        else {
-            scores = new int[7];
-        }
     }
 }

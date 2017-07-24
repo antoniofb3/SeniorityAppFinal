@@ -24,8 +24,7 @@ public class ExperienceActivity extends AppCompatActivity {
 
     private String[] workExperienceOptions = {"Without Experience", "1 or more year of experience", "2 or more years of experience", "3 or more years of experience", "4 or more years of experience", "5 or more years of experience", "6 or more years of experience"};
     private ListView lvExperience;
-    private int experienceScore = 0, educationScore = 0, experiencePercentage = 20;
-    private int[] scores;
+    private int experienceScore = 0, experiencePercentage = 20;
     private Intent intent;
     private int[] experienceScores = {0,1,2,3,4,5,6,7,8,9,10};
     private int arrowId;// = R.drawable.arrow_icon;
@@ -37,7 +36,6 @@ public class ExperienceActivity extends AppCompatActivity {
         setActionBarTitle();
         setupGUI();
         showExperienceList();
-        acumulateScores();
     }
 
     @Override
@@ -89,66 +87,54 @@ public class ExperienceActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 if (position == 0){
                     experienceScore = experienceScores[0] * experiencePercentage;
-                    scores[1] = experienceScore;
+                    intent.putExtra("PEON", experienceScore );
                     intent.putExtra("PEO", workExperienceOptions[0] );
                     setResult(Activity.RESULT_OK,intent);
                     finish();
                 }
                 if (position == 1){
                     experienceScore = experienceScores[1] * experiencePercentage;
-                    scores[1] = experienceScore;
+                    intent.putExtra("PEON", experienceScore );
                     intent.putExtra("PEO", workExperienceOptions[1] );
                     setResult(Activity.RESULT_OK,intent);
                     finish();
                 }
                 if (position == 2){
                     experienceScore = experienceScores[2] * experiencePercentage;
-                    scores[1] = experienceScore;
+                    intent.putExtra("PEON", experienceScore );
                     intent.putExtra("PEO", workExperienceOptions[2] );
                     setResult(Activity.RESULT_OK,intent);
                     finish();
                 }
                 if (position == 3){
                     experienceScore = experienceScores[3] * experiencePercentage;
-                    scores[1] = experienceScore;
+                    intent.putExtra("PEON", experienceScore );
                     intent.putExtra("PEO", workExperienceOptions[3] );
                     setResult(Activity.RESULT_OK,intent);
                     finish();
                 }
                 if (position == 4){
                     experienceScore = experienceScores[4] * experiencePercentage;
-                    scores[1] = experienceScore;
+                    intent.putExtra("PEON", experienceScore );
                     intent.putExtra("PEO", workExperienceOptions[4] );
                     setResult(Activity.RESULT_OK,intent);
                     finish();
                 }
                 if (position == 5){
                     experienceScore = experienceScores[5] * experiencePercentage;
-                    scores[1] = experienceScore;
+                    intent.putExtra("PEON", experienceScore );
                     intent.putExtra("PEO", workExperienceOptions[5] );
                     setResult(Activity.RESULT_OK,intent);
                     finish();
                 }
                 if (position == 6){
                     experienceScore = experienceScores[6] * experiencePercentage;
-                    scores[1] = experienceScore;
+                    intent.putExtra("PEON", experienceScore );
                     intent.putExtra("PEO", workExperienceOptions[6] );
                     setResult(Activity.RESULT_OK,intent);
                     finish();
                 }
             }
         });
-    }
-
-    public void acumulateScores(){
-        Intent intent = getIntent();
-        if (intent.hasExtra("FEO")) {
-            Bundle bundle = getIntent().getExtras();
-            scores = bundle.getIntArray("FEO");
-            Log.d("TAG", "Score from education ->>>>: " + scores[0] + " lalala");
-        }
-        else {
-            scores = new int[7];//I have to change this because it can delete the previous scores registered
-        }
     }
 }

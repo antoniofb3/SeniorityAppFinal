@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.antoniofb.seniorityappfinal.R;
+import com.antoniofb.seniorityappfinal.factors.FactorsActivity;
 import com.antoniofb.seniorityappfinal.registration.RegistrationActivity;
 
 public class ResultsActivity extends AppCompatActivity {
@@ -75,7 +76,7 @@ public class ResultsActivity extends AppCompatActivity {
         btDone.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(ResultsActivity.this, RegistrationActivity.class));
+                startActivity(new Intent(ResultsActivity.this, FactorsActivity.class));
             }
         });
     }

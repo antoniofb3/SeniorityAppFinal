@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -16,7 +17,7 @@ public class SummaryActivity extends AppCompatActivity {
     private Button btConfirm;
     private String[] factorsName = {"Formal Education", "Experience", "Management", "Communication", "Technical Skills", "Leadership Experience", "Empowerment"};
     private ListView lvResults;
-    private int[] scores = {0,0,0,0,0,0,0};
+    private int[] scores = new int[7];
     private Intent intent;
     private String[] factorsScore;
 
@@ -31,7 +32,7 @@ public class SummaryActivity extends AppCompatActivity {
 
     public void setActionBarTitle(){
         ActionBar ab = getSupportActionBar();
-        ab.setTitle("Summary Screen");
+        ab.setTitle("Summary");
     }
 
     public void showSummaryResults(){
@@ -45,7 +46,8 @@ public class SummaryActivity extends AppCompatActivity {
 
     public void showSummaryResults2(){
         Bundle bundle = getIntent().getExtras();
-        scores = bundle.getIntArray("EIH");
+        scores = bundle.getIntArray("AllScores");
+        //Log.d("TAG", "Scores selected: " + scores + " lalala");
         CustomListAdapterSummary customListAdapterSummary = new CustomListAdapterSummary(this,factorsName,scores);
         lvResults = (ListView) findViewById(R.id.lvResultsList);
         lvResults.setAdapter(customListAdapterSummary);
