@@ -26,7 +26,7 @@ public class SummaryActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_summary);
         setActionBarTitle();
-        showSummaryResults2();
+        showSummaryResults();
         registerResults();
     }
 
@@ -36,18 +36,8 @@ public class SummaryActivity extends AppCompatActivity {
     }
 
     public void showSummaryResults(){
-        lvResults = (ListView) findViewById(R.id.lvResultsList);
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,R.layout.activity_listview,factorsName);
-        lvResults.setAdapter(adapter);
-        //to add the scores
-        Bundle bundle = getIntent().getExtras();
-        scores = bundle.getIntArray("EIH");
-    }
-
-    public void showSummaryResults2(){
         Bundle bundle = getIntent().getExtras();
         scores = bundle.getIntArray("AllScores");
-        //Log.d("TAG", "Scores selected: " + scores + " lalala");
         CustomListAdapterSummary customListAdapterSummary = new CustomListAdapterSummary(this,factorsName,scores);
         lvResults = (ListView) findViewById(R.id.lvResultsList);
         lvResults.setAdapter(customListAdapterSummary);
