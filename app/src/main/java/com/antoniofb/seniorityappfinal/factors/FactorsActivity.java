@@ -53,7 +53,7 @@ public class FactorsActivity extends AppCompatActivity {
     private int arrowId = R.drawable.arrow_icon;
     private Intent intent;
     private CustomListAdapterFactors customListAdapter;
-    private int[] scoresFactors = new int[7]; //private Integer[] scoresFactors = new Integer[7];
+    private int[] scoresFactors = {-1,-1,-1,-1,-1,-1,-1};//new int[7];
     private int scoreFactor = 0;
 
     @Override
@@ -219,10 +219,23 @@ public class FactorsActivity extends AppCompatActivity {
     }
 
     public void saveScoresToSummary(){
-        if (scoresFactors != null) {
+        if (checkArrayContent()) {
             intent = new Intent(this, SummaryActivity.class);
             intent.putExtra("AllScores", scoresFactors);
             startActivity(intent);
         }
+    }
+
+    public boolean checkArrayContent(){
+        String message = "";
+        for (int i=0; i<scoresFactors.length; i++){
+            if (scoresFactors[i] < 0){
+                message = message + "\n" + factors[i];
+                Toast.makeText(this,"Missing score for: " + message, Toast.LENGTH_SHORT).show();
+                return false;
+
+            }
+        }
+        return true;
     }
 }
