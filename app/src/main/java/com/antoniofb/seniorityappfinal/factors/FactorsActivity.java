@@ -228,13 +228,16 @@ public class FactorsActivity extends AppCompatActivity {
 
     public boolean checkArrayContent(){
         String message = "";
+        int counter = 0;
         for (int i=0; i<scoresFactors.length; i++){
             if (scoresFactors[i] < 0){
                 message = message + "\n" + factors[i];
-                Toast.makeText(this,"Missing score for: " + message, Toast.LENGTH_SHORT).show();
-                return false;
-
+                counter++;
             }
+        }
+        if (counter > 0){
+            Toast.makeText(this,"Missing score for: " + message, Toast.LENGTH_SHORT).show();
+            return false;
         }
         return true;
     }
