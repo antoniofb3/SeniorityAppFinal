@@ -30,6 +30,7 @@
         <activity android:name=".management.ManagementHelpActivity" />
         <activity android:name=".communication.CommunicationHelpActivity" />
         <activity android:name=".technicalSkills.TechnicalSkillsHelpActivity" />
+        <activity android:name=".leadershipExperience.LeadershipExperienceHelpActivity"></activity>
     </application>
 
 </manifest>
