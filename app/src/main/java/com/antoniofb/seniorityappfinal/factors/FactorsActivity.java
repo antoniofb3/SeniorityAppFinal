@@ -16,6 +16,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.antoniofb.seniorityappfinal.R;
+import com.antoniofb.seniorityappfinal.Settings.AboutActivity;
 import com.antoniofb.seniorityappfinal.communication.CommunicationActivity;
 import com.antoniofb.seniorityappfinal.education.FormalEducationActivity;
 import com.antoniofb.seniorityappfinal.empowerment.EmpowermentActivity;
@@ -90,6 +91,9 @@ public class FactorsActivity extends AppCompatActivity {
             case android.R.id.home:
                 onBackPressed();
                 break;
+
+            case R.id.actionSettings:
+                startActivity(new Intent(this, AboutActivity.class));
 
             default:
                 return super.onOptionsItemSelected(item);

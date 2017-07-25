@@ -31,7 +31,8 @@
         <activity android:name=".communication.CommunicationHelpActivity" />
         <activity android:name=".technicalSkills.TechnicalSkillsHelpActivity" />
         <activity android:name=".leadershipExperience.LeadershipExperienceHelpActivity" />
-        <activity android:name=".empowerment.EmpowermentHelpActivity"></activity>
+        <activity android:name=".empowerment.EmpowermentHelpActivity" />
+        <activity android:name=".Settings.AboutActivity"></activity>
     </application>
 
 </manifest>
