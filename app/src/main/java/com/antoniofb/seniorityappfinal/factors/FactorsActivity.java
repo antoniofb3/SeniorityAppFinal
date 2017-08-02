@@ -2,6 +2,9 @@ package com.antoniofb.seniorityappfinal.factors;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.res.Resources;
+import android.os.AsyncTask;
+import android.os.SystemClock;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -26,21 +29,20 @@ import com.antoniofb.seniorityappfinal.management.ManagementActivity;
 import com.antoniofb.seniorityappfinal.results.SummaryActivity;
 import com.antoniofb.seniorityappfinal.technicalSkills.TechnicalSkillsActivity;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class FactorsActivity extends AppCompatActivity {
 
     private TextView tvEmpData;
     private ListView lvFactors;
-    private String[] factors = {
-            "Formal Education",
-            "Experience",
-            "Management",
-            "Communication",
-            "Technical Skills",
-            "Leadership Experience",
-            "Empowerment"
-    };
+    private String[] factors;
     private String[] factorsChosen = new String[7];
     private Integer[] imagesIds = {
             R.drawable.education_icon,
@@ -64,13 +66,8 @@ public class FactorsActivity extends AppCompatActivity {
         setActionBarTitle();
         setupGUI();
         //showEmployeeData();
+        fillFactorsList();
         showFactorsList();
-    }
-
-    @Override
-    public boolean onSupportNavigateUp() {
-        finish();
-        return true;
     }
 
     @Override
@@ -94,6 +91,11 @@ public class FactorsActivity extends AppCompatActivity {
 
             case R.id.actionSettings:
                 startActivity(new Intent(this, AboutActivity.class));
+                break;
+
+            case R.id.actionSettings2:
+                this.finish();
+                break;
 
             default:
                 return super.onOptionsItemSelected(item);
@@ -103,7 +105,6 @@ public class FactorsActivity extends AppCompatActivity {
 
     public void setActionBarTitle(){
         getSupportActionBar().setTitle("Seniority Belatrix");
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     public void setupGUI(){
@@ -244,5 +245,36 @@ public class FactorsActivity extends AppCompatActivity {
             return false;
         }
         return true;
+    }
+
+    public void fillFactorsList(){
+
+        Resources resources = getResources();
+        InputStream inputStream = resources.openRawResource(R.raw.factors);
+        Scanner scanner = new Scanner(inputStream);
+        StringBuilder stringBuilder = new StringBuilder();
+        while (scanner.hasNextLine()){
+            stringBuilder.append(scanner.nextLine());
+        }
+        parseJson(stringBuilder.toString());
+    }
+
+    private void parseJson(String s) {
+        StringBuilder builder = new StringBuilder();
+        try {
+            JSONObject root = new JSONObject(s);
+            JSONObject factor = root.getJSONObject("seniority");
+            //builder.append("Name: ").append(student.getString("name")).append("\n");
+            //builder.append("Full Time: ").append(student.getBoolean("full-time")).append("\n\n");
+            JSONArray jsonFactors = factor.getJSONArray("factors");
+            factors = new String[jsonFactors.length()];
+            for (int i=0; i<jsonFactors.length(); i++){
+                JSONObject jsonObject = jsonFactors.getJSONObject(i);
+                //builder.append(jsonObject.getString("factor"));
+                factors[i] = jsonObject.getString("factor"); //builder.toString();
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
     }
 }

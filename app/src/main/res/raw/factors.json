@@ -1,0 +1,27 @@
+{
+  "seniority": {
+    "factors": [
+      {
+        "factor":"Formal Education"
+      },
+      {
+        "factor":"Experience"
+      },
+      {
+        "factor":"Management"
+      },
+      {
+        "factor":"Communication"
+      },
+      {
+        "factor":"Technical Skills"
+      },
+      {
+        "factor":"Leadership Experience"
+      },
+      {
+        "factor":"Empowerment"
+      }
+    ]
+  }
+}
