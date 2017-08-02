@@ -11,6 +11,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
 
 import com.antoniofb.seniorityappfinal.R;
@@ -24,7 +25,8 @@ public class FormalEducationActivity extends AppCompatActivity {
     private int educationScore = 0, educationPercentage = 5;
     private Intent intent;
     private int[] educationScores = {1,2,3,5,6};
-    private int checkedId;// = R.drawable.checked_icon;
+    private int checkedId = R.drawable.checked_icon;
+    private int positionChosen;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,40 +84,21 @@ public class FormalEducationActivity extends AppCompatActivity {
         lvEducationOptions.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-                if (position == 0){
-                    educationScore = educationScores[0] * educationPercentage;
-                    intent.putExtra("FEON", educationScore);
-                    intent.putExtra("FEO", educationOptions[0] );
-                    setResult(Activity.RESULT_OK,intent);
-                    finish();
+                if (position == positionChosen){
+                    //con la posicion escogida yo puedo decir en q fila va hacer visible el check cuando cargue el activity
+                    positionChosen = position;
+                    ImageView iv = (ImageView) findViewById(R.id.checkedEducationIcon);
+                    iv.setVisibility(view.VISIBLE);
+                    //hasta aca
                 }
-                if (position == 1){
-                    educationScore = educationScores[1] * educationPercentage;
-                    intent.putExtra("FEON", educationScore);
-                    intent.putExtra("FEO", educationOptions[1] );
-                    setResult(Activity.RESULT_OK,intent);
-                    finish();
-                }
-                if (position == 2){
-                    educationScore = educationScores[2] * educationPercentage;
-                    intent.putExtra("FEON", educationScore);
-                    intent.putExtra("FEO", educationOptions[2] );
-                    setResult(Activity.RESULT_OK,intent);
-                    finish();
-                }
-                if (position == 3){
-                    educationScore = educationScores[3] * educationPercentage;
-                    intent.putExtra("FEON", educationScore);
-                    intent.putExtra("FEO", educationOptions[3] );
-                    setResult(Activity.RESULT_OK,intent);
-                    finish();
-                }
-                if (position == 4){
-                    educationScore = educationScores[4] * educationPercentage;
-                    intent.putExtra("FEON", educationScore);
-                    intent.putExtra("FEO", educationOptions[4] );
-                    setResult(Activity.RESULT_OK,intent);
-                    finish();
+                for (int i=0; i<educationOptions.length; i++){
+                    if (position == i){
+                        educationScore = educationScores[i] * educationPercentage;
+                        intent.putExtra("FEON", educationScore);
+                        intent.putExtra("FEO", educationOptions[i] );
+                        setResult(Activity.RESULT_OK,intent);
+                        finish();
+                    }
                 }
             }
         });

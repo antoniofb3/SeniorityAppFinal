@@ -37,7 +37,7 @@ public class CustomListAdapterFormalEducation extends ArrayAdapter<String> {
 
         TextView txtTitle = (TextView) rowView.findViewById(R.id.formalEducationOption);
         //ImageView imageView = (ImageView) rowView.findViewById(R.id.checkedIcon);
-        ImageView imageView2 = (ImageView) rowView.findViewById(R.id.checkedIcon);
+        ImageView imageView2 = (ImageView) rowView.findViewById(R.id.checkedEducationIcon);
 
         txtTitle.setText(educationOptions[position]);
         //imageView.setImageResource(imagesIds[position]);
