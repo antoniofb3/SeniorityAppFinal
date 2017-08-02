@@ -78,26 +78,14 @@ public class EmpowermentActivity extends AppCompatActivity {
         lvEmpowerment.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                if (position == 0){
-                    empowermentScore = empowermentScores[0] * empowermentPercentage;
-                    intent.putExtra("EON", empowermentScore);
-                    intent.putExtra("EO", empowermentOptions[0] );
-                    setResult(Activity.RESULT_OK,intent);
-                    finish();
-                }
-                if (position == 1){
-                    empowermentScore = empowermentScores[1] * empowermentPercentage;
-                    intent.putExtra("EON", empowermentScore);
-                    intent.putExtra("EO", empowermentOptions[1] );
-                    setResult(Activity.RESULT_OK,intent);
-                    finish();
-                }
-                if (position == 2){
-                    empowermentScore = empowermentScores[2] * empowermentPercentage;
-                    intent.putExtra("EON", empowermentScore);
-                    intent.putExtra("EO", empowermentOptions[2] );
-                    setResult(Activity.RESULT_OK,intent);
-                    finish();
+                for (int i=0; i<empowermentOptions.length; i++){
+                    if (position == i){
+                        empowermentScore = empowermentScores[i] * empowermentPercentage;
+                        intent.putExtra("EON", empowermentScore);
+                        intent.putExtra("EO", empowermentOptions[i] );
+                        setResult(Activity.RESULT_OK,intent);
+                        finish();
+                    }
                 }
             }
         });

@@ -78,47 +78,14 @@ public class CommunicationActivity extends AppCompatActivity {
         lvCommunication.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                if (position == 0){
-                    communicationScore = communicationScores[0] * communicationPercentage;
-                    intent.putExtra("CON", communicationScore);
-                    intent.putExtra("CO", communicationOptions[0] );
-                    setResult(Activity.RESULT_OK,intent);
-                    finish();
-                }
-                if (position == 1){
-                    communicationScore = communicationScores[1] * communicationPercentage;
-                    intent.putExtra("CON", communicationScore);
-                    intent.putExtra("CO", communicationOptions[1] );
-                    setResult(Activity.RESULT_OK,intent);
-                    finish();
-                }
-                if (position == 2){
-                    communicationScore = communicationScores[2] * communicationPercentage;
-                    intent.putExtra("CON", communicationScore);
-                    intent.putExtra("CO", communicationOptions[2] );
-                    setResult(Activity.RESULT_OK,intent);
-                    finish();
-                }
-                if (position == 3){
-                    communicationScore = communicationScores[3] * communicationPercentage;
-                    intent.putExtra("CON", communicationScore);
-                    intent.putExtra("CO", communicationOptions[3] );
-                    setResult(Activity.RESULT_OK,intent);
-                    finish();
-                }
-                if (position == 4){
-                    communicationScore = communicationScores[4] * communicationPercentage;
-                    intent.putExtra("CON", communicationScore);
-                    intent.putExtra("CO", communicationOptions[4] );
-                    setResult(Activity.RESULT_OK,intent);
-                    finish();
-                }
-                if (position ==5){
-                    communicationScore = communicationScores[5] * communicationPercentage;
-                    intent.putExtra("CON", communicationScore);
-                    intent.putExtra("CO", communicationOptions[5] );
-                    setResult(Activity.RESULT_OK,intent);
-                    finish();
+                for (int i=0; i<communicationOptions.length; i++){
+                    if (position == i){
+                        communicationScore = communicationScores[i] * communicationPercentage;
+                        intent.putExtra("CON", communicationScore);
+                        intent.putExtra("CO", communicationOptions[i] );
+                        setResult(Activity.RESULT_OK,intent);
+                        finish();
+                    }
                 }
             }
         });

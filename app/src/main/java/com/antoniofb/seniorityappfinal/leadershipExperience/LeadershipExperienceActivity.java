@@ -78,47 +78,14 @@ public class LeadershipExperienceActivity extends AppCompatActivity {
         lvLeadershipExperience.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                if (position == 0){
-                    leadershipScore = leadershipScores[0] * leadershipPercentage;
-                    intent.putExtra("LEON", leadershipScore);
-                    intent.putExtra("LEO", leadershipExperienceOptions[0] );
-                    setResult(Activity.RESULT_OK,intent);
-                    finish();
-                }
-                if (position == 1){
-                    leadershipScore = leadershipScores[1] * leadershipPercentage;
-                    intent.putExtra("LEON", leadershipScore);
-                    intent.putExtra("LEO", leadershipExperienceOptions[1] );
-                    setResult(Activity.RESULT_OK,intent);
-                    finish();
-                }
-                if (position == 2){
-                    leadershipScore = leadershipScores[2] * leadershipPercentage;
-                    intent.putExtra("LEON", leadershipScore);
-                    intent.putExtra("LEO", leadershipExperienceOptions[2] );
-                    setResult(Activity.RESULT_OK,intent);
-                    finish();
-                }
-                if (position == 3){
-                    leadershipScore = leadershipScores[3] * leadershipPercentage;
-                    intent.putExtra("LEON", leadershipScore);
-                    intent.putExtra("LEO", leadershipExperienceOptions[3] );
-                    setResult(Activity.RESULT_OK,intent);
-                    finish();
-                }
-                if (position == 4){
-                    leadershipScore = leadershipScores[4] * leadershipPercentage;
-                    intent.putExtra("LEON", leadershipScore);
-                    intent.putExtra("LEO", leadershipExperienceOptions[4] );
-                    setResult(Activity.RESULT_OK,intent);
-                    finish();
-                }
-                if (position == 5){
-                    leadershipScore = leadershipScores[5] * leadershipPercentage;
-                    intent.putExtra("LEON", leadershipScore);
-                    intent.putExtra("LEO", leadershipExperienceOptions[5] );
-                    setResult(Activity.RESULT_OK,intent);
-                    finish();
+                for (int i=0; i<leadershipExperienceOptions.length; i++){
+                    if (position == i){
+                        leadershipScore = leadershipScores[i] * leadershipPercentage;
+                        intent.putExtra("LEON", leadershipScore);
+                        intent.putExtra("LEO", leadershipExperienceOptions[i] );
+                        setResult(Activity.RESULT_OK,intent);
+                        finish();
+                    }
                 }
             }
         });
