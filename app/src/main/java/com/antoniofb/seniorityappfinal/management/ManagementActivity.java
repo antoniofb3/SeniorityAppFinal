@@ -84,47 +84,14 @@ public class ManagementActivity extends AppCompatActivity {
         lvManagement.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                if (position == 0){
-                    managementScore = managementScores[0] * managementPercentage;
-                    intent.putExtra("MON", managementScore);
-                    intent.putExtra("MO", managementOptions[0] );
-                    setResult(Activity.RESULT_OK,intent);
-                    finish();
-                }
-                if (position == 1){
-                    managementScore = managementScores[1] * managementPercentage;
-                    intent.putExtra("MON", managementScore);
-                    intent.putExtra("MO", managementOptions[1] );
-                    setResult(Activity.RESULT_OK,intent);
-                    finish();
-                }
-                if (position == 2){
-                    managementScore = managementScores[2] * managementPercentage;
-                    intent.putExtra("MON", managementScore);
-                    intent.putExtra("MO", managementOptions[2] );
-                    setResult(Activity.RESULT_OK,intent);
-                    finish();
-                }
-                if (position == 3){
-                    managementScore = managementScores[3] * managementPercentage;
-                    intent.putExtra("MON", managementScore);
-                    intent.putExtra("MO", managementOptions[3] );
-                    setResult(Activity.RESULT_OK,intent);
-                    finish();
-                }
-                if (position == 4){
-                    managementScore = managementScores[4] * managementPercentage;
-                    intent.putExtra("MON", managementScore);
-                    intent.putExtra("MO", managementOptions[4] );
-                    setResult(Activity.RESULT_OK,intent);
-                    finish();
-                }
-                if (position == 5){
-                    managementScore = managementScores[5] * managementPercentage;
-                    intent.putExtra("MON", managementScore);
-                    intent.putExtra("MO", managementOptions[5] );
-                    setResult(Activity.RESULT_OK,intent);
-                    finish();
+                for (int i=0; i<managementOptions.length; i++){
+                    if (position == i){
+                        managementScore = managementScores[i] * managementPercentage;
+                        intent.putExtra("MON", managementScore);
+                        intent.putExtra("MO", managementOptions[i] );
+                        setResult(Activity.RESULT_OK,intent);
+                        finish();
+                    }
                 }
             }
         });
