@@ -56,7 +56,7 @@ public class FactorsActivity extends AppCompatActivity {
     private int arrowId = R.drawable.arrow_icon;
     private Intent intent;
     private CustomListAdapterFactors customListAdapter;
-    private int[] scoresFactors = {-1,-1,-1,-1,-1,-1,-1};//new int[7];
+    private int[] scoresFactors = {-1,-1,-1,-1,-1,-1,-1};
     private int scoreFactor = 0;
 
     @Override
