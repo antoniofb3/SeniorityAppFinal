@@ -85,54 +85,14 @@ public class ExperienceActivity extends AppCompatActivity {
         lvExperience.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                if (position == 0){
-                    experienceScore = experienceScores[0] * experiencePercentage;
-                    intent.putExtra("PEON", experienceScore );
-                    intent.putExtra("PEO", workExperienceOptions[0] );
-                    setResult(Activity.RESULT_OK,intent);
-                    finish();
-                }
-                if (position == 1){
-                    experienceScore = experienceScores[1] * experiencePercentage;
-                    intent.putExtra("PEON", experienceScore );
-                    intent.putExtra("PEO", workExperienceOptions[1] );
-                    setResult(Activity.RESULT_OK,intent);
-                    finish();
-                }
-                if (position == 2){
-                    experienceScore = experienceScores[2] * experiencePercentage;
-                    intent.putExtra("PEON", experienceScore );
-                    intent.putExtra("PEO", workExperienceOptions[2] );
-                    setResult(Activity.RESULT_OK,intent);
-                    finish();
-                }
-                if (position == 3){
-                    experienceScore = experienceScores[3] * experiencePercentage;
-                    intent.putExtra("PEON", experienceScore );
-                    intent.putExtra("PEO", workExperienceOptions[3] );
-                    setResult(Activity.RESULT_OK,intent);
-                    finish();
-                }
-                if (position == 4){
-                    experienceScore = experienceScores[4] * experiencePercentage;
-                    intent.putExtra("PEON", experienceScore );
-                    intent.putExtra("PEO", workExperienceOptions[4] );
-                    setResult(Activity.RESULT_OK,intent);
-                    finish();
-                }
-                if (position == 5){
-                    experienceScore = experienceScores[5] * experiencePercentage;
-                    intent.putExtra("PEON", experienceScore );
-                    intent.putExtra("PEO", workExperienceOptions[5] );
-                    setResult(Activity.RESULT_OK,intent);
-                    finish();
-                }
-                if (position == 6){
-                    experienceScore = experienceScores[6] * experiencePercentage;
-                    intent.putExtra("PEON", experienceScore );
-                    intent.putExtra("PEO", workExperienceOptions[6] );
-                    setResult(Activity.RESULT_OK,intent);
-                    finish();
+                for (int i=0; i<workExperienceOptions.length; i++){
+                    if (position == i){
+                        experienceScore = experienceScores[i] * experiencePercentage;
+                        intent.putExtra("PEON", experienceScore );
+                        intent.putExtra("PEO", workExperienceOptions[i] );
+                        setResult(Activity.RESULT_OK,intent);
+                        finish();
+                    }
                 }
             }
         });
