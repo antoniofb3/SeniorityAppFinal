@@ -5,6 +5,8 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -15,7 +17,6 @@ import com.antoniofb.seniorityappfinal.registration.RegistrationActivity;
 
 public class ResultsActivity extends AppCompatActivity {
 
-    private Button btDone;
     private int[] scores;
     private TextView tvSeniorityScore, tvSeniorityCategory;
 
@@ -25,12 +26,36 @@ public class ResultsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_results);
         setActionBarTitle();
         showSeniority();
-        returnToRegistration();
     }
 
     @Override
     public boolean onSupportNavigateUp() {
         finish();
+        return true;
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        //return super.onCreateOptionsMenu(menu);
+        getMenuInflater().inflate(R.menu.menu_results, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        //return super.onOptionsItemSelected(item);
+        switch (item.getItemId()) {
+            case R.id.finishButton:
+                startActivity(new Intent(ResultsActivity.this, FactorsActivity.class));
+                break;
+
+            case android.R.id.home:
+                onBackPressed();
+                break;
+
+            default:
+                return super.onOptionsItemSelected(item);
+        }
         return true;
     }
 
@@ -75,15 +100,5 @@ public class ResultsActivity extends AppCompatActivity {
         if (seniorityScore > 535 && seniorityScore <= 660){
             tvSeniorityCategory.setText("SR D/SME B");
         }
-    }
-
-    public void returnToRegistration(){
-        btDone = (Button) findViewById(R.id.btnEndProcess);
-        btDone.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(ResultsActivity.this, FactorsActivity.class));
-            }
-        });
     }
 }
