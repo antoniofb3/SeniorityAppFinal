@@ -74,7 +74,7 @@ public class ExperienceActivity extends AppCompatActivity {
     }
 
     public void setBarOptions(){
-        getSupportActionBar().setTitle("Experience Screen");
+        getSupportActionBar().setTitle("Work Experience");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 

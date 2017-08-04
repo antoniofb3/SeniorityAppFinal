@@ -35,7 +35,7 @@ public class PreviousExperienceHelpActivity extends AppCompatActivity {
     }
 
     public void setBarOptions(){
-        getSupportActionBar().setTitle("Previous Experience Help");
+        getSupportActionBar().setTitle("Work Experience Help");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 

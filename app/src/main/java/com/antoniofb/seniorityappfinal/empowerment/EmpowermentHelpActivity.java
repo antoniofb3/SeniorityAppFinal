@@ -22,7 +22,7 @@ public class EmpowermentHelpActivity extends AppCompatActivity {
     }
 
     public void setBarOptions(){
-        getSupportActionBar().setTitle("Help for Technical Skills");
+        getSupportActionBar().setTitle("Help for Empowerment");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 }
