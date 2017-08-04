@@ -40,7 +40,7 @@ public class FormalEducationActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_formal_education);
-        setActionBarTitle();
+        setBarOptions();
         setupGUI();
         showEducationList();
     }
@@ -80,7 +80,7 @@ public class FormalEducationActivity extends AppCompatActivity {
         lvEducationOptions = (ListView) findViewById(R.id.lvFormalEducationList);
     }
 
-    public void setActionBarTitle(){
+    public void setBarOptions(){
         getSupportActionBar().setTitle("Formal Education");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }

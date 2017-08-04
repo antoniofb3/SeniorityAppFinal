@@ -22,7 +22,7 @@ public class RegistrationActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration);
-        setActionBarTitle();
+        setBarOptions();
         setupGUI();
         init();
     }
@@ -40,7 +40,7 @@ public class RegistrationActivity extends AppCompatActivity {
         etEmployeeSeniority = (EditText) findViewById(R.id.employeeSeniority);
     }
 
-    public void setActionBarTitle(){
+    public void setBarOptions(){
         getSupportActionBar().setTitle("Registration");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }

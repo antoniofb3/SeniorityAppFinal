@@ -36,7 +36,7 @@ public class ManagementActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_management);
-        setActionBarTitle();
+        setBarOptions();
         showManagementList();
     }
 
@@ -71,7 +71,7 @@ public class ManagementActivity extends AppCompatActivity {
         return true;
     }
 
-    public void setActionBarTitle(){
+    public void setBarOptions(){
         getSupportActionBar().setTitle("Management");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }

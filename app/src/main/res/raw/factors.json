@@ -18,13 +18,16 @@
         "help":"There is a list of available options, you have to choose the adequate option that match the grade of communication the employee has."
       },
       {
-        "factor":"Technical Skills"
+        "factor":"Technical Skills",
+        "help":"lalala"
       },
       {
-        "factor":"Leadership Experience"
+        "factor":"Leadership Experience",
+        "help":"lalalale"
       },
       {
-        "factor":"Empowerment"
+        "factor":"Empowerment",
+        "help":"lalalaemp"
       }
     ]
   }

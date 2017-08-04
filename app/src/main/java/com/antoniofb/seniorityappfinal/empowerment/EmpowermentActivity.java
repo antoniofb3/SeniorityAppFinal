@@ -30,7 +30,7 @@ public class EmpowermentActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_empowerment);
-        setActionBarTitle();
+        setBarOptions();
         showManagementList();
     }
 
@@ -65,7 +65,7 @@ public class EmpowermentActivity extends AppCompatActivity {
         return true;
     }
 
-    public void setActionBarTitle(){
+    public void setBarOptions(){
         getSupportActionBar().setTitle("Empowerment");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }

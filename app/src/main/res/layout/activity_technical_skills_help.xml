@@ -8,11 +8,20 @@
     tools:context="com.antoniofb.seniorityappfinal.technicalSkills.TechnicalSkillsHelpActivity">
 
     <TextView
-        android:id="@+id/tvFEHelp"
+        android:id="@+id/tvFEHelpTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:textAppearanceMedium"
+        android:text="Instructions"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tvFEHelpText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAppearance="?android:textAppearanceMedium"
-        android:text="Help screen for technical Skills"
-        android:textStyle="bold"/>
+        android:layout_margin="10dp"/>
 
 </LinearLayout>

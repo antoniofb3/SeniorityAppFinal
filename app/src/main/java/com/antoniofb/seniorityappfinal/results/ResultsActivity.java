@@ -24,7 +24,7 @@ public class ResultsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_results);
-        setActionBarTitle();
+        setBarOptions();
         showSeniority();
     }
 
@@ -59,7 +59,7 @@ public class ResultsActivity extends AppCompatActivity {
         return true;
     }
 
-    public void setActionBarTitle(){
+    public void setBarOptions(){
         getSupportActionBar().setTitle("Seniority Results");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }

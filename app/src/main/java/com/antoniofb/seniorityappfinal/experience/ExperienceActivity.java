@@ -33,7 +33,7 @@ public class ExperienceActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_experience);
-        setActionBarTitle();
+        setBarOptions();
         setupGUI();
         showExperienceList();
     }
@@ -73,7 +73,7 @@ public class ExperienceActivity extends AppCompatActivity {
         lvExperience = (ListView) findViewById(R.id.lvExperienceList);
     }
 
-    public void setActionBarTitle(){
+    public void setBarOptions(){
         getSupportActionBar().setTitle("Experience Screen");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }

@@ -26,7 +26,7 @@ public class SummaryActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_summary);
-        setActionBarTitle();
+        setBarOptions();
         showSummaryResults();
     }
 
@@ -63,7 +63,7 @@ public class SummaryActivity extends AppCompatActivity {
         return true;
     }
 
-    public void setActionBarTitle(){
+    public void setBarOptions(){
         getSupportActionBar().setTitle("Summary");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }

@@ -37,7 +37,7 @@ public class TechnicalSkillsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_technical_skills);
-        setActionBarTitle();
+        setBarOptions();
         showManagementList();
     }
 
@@ -72,7 +72,7 @@ public class TechnicalSkillsActivity extends AppCompatActivity {
         return true;
     }
 
-    public void setActionBarTitle(){
+    public void setBarOptions(){
         getSupportActionBar().setTitle("Technical Skills");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }

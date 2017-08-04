@@ -30,7 +30,7 @@ public class LeadershipExperienceActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_leadership_experience);
-        setActionBarTitle();
+        setBarOptions();
         showManagementList();
     }
 
@@ -65,7 +65,7 @@ public class LeadershipExperienceActivity extends AppCompatActivity {
         return true;
     }
 
-    public void setActionBarTitle(){
+    public void setBarOptions(){
         getSupportActionBar().setTitle("Leadership Experience");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }

@@ -22,7 +22,7 @@ public class FormalEducationHelpActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_formal_education_help);
-        setActionBarOptions();
+        setBarOptions();
         setupGUI();
         fillTVHelp();
     }
@@ -34,7 +34,7 @@ public class FormalEducationHelpActivity extends AppCompatActivity {
         return true;
     }
 
-    public void setActionBarOptions(){
+    public void setBarOptions(){
         getSupportActionBar().setTitle("Formal Education Help");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
