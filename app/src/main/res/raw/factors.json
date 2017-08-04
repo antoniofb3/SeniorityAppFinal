@@ -2,16 +2,20 @@
   "seniority": {
     "factors": [
       {
-        "factor":"Formal Education"
+        "factor":"Formal Education",
+        "help":"There is a list of available options, you have to choose the adequate option that match the education level for this employee."
       },
       {
-        "factor":"Experience"
+        "factor":"Experience",
+        "help":"There is a list of available options, you have to choose the adequate option that match the previous work experience for this employee. You can choose between no experience and 15 or more years of experience"
       },
       {
-        "factor":"Management"
+        "factor":"Management",
+        "help":"There is a list of available options, you have to choose the adequate option that match the type of management the employee has. Also you have to take into account the number of people in charge, responsibility for assignments, complexity of the project or client and resolution of human resources issues."
       },
       {
-        "factor":"Communication"
+        "factor":"Communication",
+        "help":"There is a list of available options, you have to choose the adequate option that match the grade of communication the employee has."
       },
       {
         "factor":"Technical Skills"

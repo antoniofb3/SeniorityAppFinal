@@ -2,6 +2,7 @@ package com.antoniofb.seniorityappfinal.education;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -17,6 +18,13 @@ import android.widget.ListView;
 import com.antoniofb.seniorityappfinal.R;
 import com.antoniofb.seniorityappfinal.experience.ExperienceActivity;
 import com.antoniofb.seniorityappfinal.factors.FactorsActivity;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.InputStream;
+import java.util.Scanner;
 
 public class FormalEducationActivity extends AppCompatActivity {
 
