@@ -44,7 +44,6 @@ public class PreviousExperienceHelpActivity extends AppCompatActivity {
     }
 
     public void fillTVHelp(){
-
         Resources resources = getResources();
         InputStream inputStream = resources.openRawResource(R.raw.factors);
         Scanner scanner = new Scanner(inputStream);
@@ -62,15 +61,6 @@ public class PreviousExperienceHelpActivity extends AppCompatActivity {
             JSONArray jsonFactors = factor.getJSONArray("factors");
             JSONObject jsonObject = jsonFactors.getJSONObject(1);
             tvFEHelpText.setText(jsonObject.getString("help"));
-
-            /*
-            //factors = new String[jsonFactors.length()];
-            for (int i=0; i<jsonFactors.length(); i++){
-                JSONObject jsonObject = jsonFactors.getJSONObject(i);
-                //builder.append(jsonObject.getString("factor"));
-                factors[i] = jsonObject.getString("factor"); //builder.toString();
-            }
-            */
         } catch (JSONException e) {
             e.printStackTrace();
         }
