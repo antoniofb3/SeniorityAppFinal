@@ -43,7 +43,7 @@ public class FactorsActivity extends AppCompatActivity {
     private TextView tvEmpData;
     private ListView lvFactors;
     private String[] factors;
-    private String[] factorsChosen = new String[7];
+    private String[] factorsChosen;
     private Integer[] imagesIds = {
             R.drawable.education_icon,
             R.drawable.experience_icon,
@@ -58,6 +58,7 @@ public class FactorsActivity extends AppCompatActivity {
     private CustomListAdapterFactors customListAdapter;
     private int[] scoresFactors = {-1,-1,-1,-1,-1,-1,-1};
     private int scoreFactor = 0;
+    private int size = 0;//to get the number of factors for the rest of arrays
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -268,6 +269,8 @@ public class FactorsActivity extends AppCompatActivity {
             //builder.append("Full Time: ").append(student.getBoolean("full-time")).append("\n\n");
             JSONArray jsonFactors = factor.getJSONArray("factors");
             factors = new String[jsonFactors.length()];
+            size = factors.length;
+            factorsChosen = new String[factors.length];
             for (int i=0; i<jsonFactors.length(); i++){
                 JSONObject jsonObject = jsonFactors.getJSONObject(i);
                 //builder.append(jsonObject.getString("factor"));
