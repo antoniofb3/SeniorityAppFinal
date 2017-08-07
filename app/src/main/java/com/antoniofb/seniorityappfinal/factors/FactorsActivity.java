@@ -261,7 +261,7 @@ public class FactorsActivity extends AppCompatActivity {
     }
 
     private void parseJson(String s) {
-        StringBuilder builder = new StringBuilder();
+        //StringBuilder builder = new StringBuilder();
         try {
             JSONObject root = new JSONObject(s);
             JSONObject factor = root.getJSONObject("seniority");

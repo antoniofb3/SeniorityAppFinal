@@ -1,6 +1,7 @@
 package com.antoniofb.seniorityappfinal.results;
 
 import android.content.Intent;
+import android.content.res.Resources;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -14,19 +15,26 @@ import android.widget.ListView;
 
 import com.antoniofb.seniorityappfinal.R;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.InputStream;
+import java.util.Scanner;
+
 public class SummaryActivity extends AppCompatActivity {
 
-    private String[] factorsName = {"Formal Education", "Experience", "Management", "Communication", "Technical Skills", "Leadership Experience", "Empowerment"};
+    private String[] factorsName;
     private ListView lvResults;
-    private int[] scores = new int[7];
+    private int[] scores;
     private Intent intent;
-    private String[] factorsScore;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_summary);
         setBarOptions();
+        fillFactorsList();
         showSummaryResults();
     }
 
@@ -74,5 +82,34 @@ public class SummaryActivity extends AppCompatActivity {
         CustomListAdapterSummary customListAdapterSummary = new CustomListAdapterSummary(this,factorsName,scores);
         lvResults = (ListView) findViewById(R.id.lvResultsList);
         lvResults.setAdapter(customListAdapterSummary);
+    }
+
+    public void fillFactorsList(){
+
+        Resources resources = getResources();
+        InputStream inputStream = resources.openRawResource(R.raw.factors);
+        Scanner scanner = new Scanner(inputStream);
+        StringBuilder stringBuilder = new StringBuilder();
+        while (scanner.hasNextLine()){
+            stringBuilder.append(scanner.nextLine());
+        }
+        parseJson(stringBuilder.toString());
+    }
+
+    private void parseJson(String s) {
+        //StringBuilder builder = new StringBuilder();
+        try {
+            JSONObject root = new JSONObject(s);
+            JSONObject factor = root.getJSONObject("seniority");
+            JSONArray jsonFactors = factor.getJSONArray("factors");
+            factorsName = new String[jsonFactors.length()];
+            scores = new int[jsonFactors.length()];
+            for (int i=0; i<jsonFactors.length(); i++){
+                JSONObject jsonObject = jsonFactors.getJSONObject(i);
+                factorsName[i] = jsonObject.getString("factor");
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
     }
 }
