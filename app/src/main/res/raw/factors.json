@@ -4,6 +4,7 @@
       {
         "factor":"Formal Education",
         "help":"There is a list of options available, you must choose one of the options that corresponds with the level of education of the employee. If the employee does not finish his / her non-university studies you must choose the option: Incomplete Terciary Education. If the employee has incomplete university studies you must choose the option: Incomplete Bachelor. If the employee finishes his university studies must choose the option: Bachelor. If the employee has studies of specialization you must choose the option: Graduated + Specializated. And if the employee has a completed mastery you must choose the option: Master.",
+        "image":"R.drawable.education_icon",
         "options":[
           {
             "ite":"Incomplete Terciary Education",

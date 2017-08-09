@@ -268,10 +268,10 @@ public class FactorsActivity extends AppCompatActivity {
             //builder.append("Name: ").append(student.getString("name")).append("\n");
             //builder.append("Full Time: ").append(student.getBoolean("full-time")).append("\n\n");
             JSONArray jsonFactors = factor.getJSONArray("factors");
-            factors = new String[jsonFactors.length()];
-            size = factors.length;
-            factorsChosen = new String[factors.length];
-            for (int i=0; i<jsonFactors.length(); i++){
+            size = jsonFactors.length();
+            factors = new String[size];
+            factorsChosen = new String[size];
+            for (int i=0; i<size; i++){
                 JSONObject jsonObject = jsonFactors.getJSONObject(i);
                 //builder.append(jsonObject.getString("factor"));
                 factors[i] = jsonObject.getString("factor"); //builder.toString();
