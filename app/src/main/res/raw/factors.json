@@ -3,11 +3,20 @@
     "factors": [
       {
         "factor":"Formal Education",
-        "help":"There is a list of available options, you have to choose the adequate option that match the education level for this employee."
+        "help":"There is a list of options available, you must choose one of the options that corresponds with the level of education of the employee. If the employee does not finish his / her non-university studies you must choose the option: Incomplete Terciary Education. If the employee has incomplete university studies you must choose the option: Incomplete Bachelor. If the employee finishes his university studies must choose the option: Bachelor. If the employee has studies of specialization you must choose the option: Graduated + Specializated. And if the employee has a completed mastery you must choose the option: Master.",
+        "options":[
+          {
+            "ite":"Incomplete Terciary Education",
+            "ib":"Incomplete Bachelor",
+            "b":"Bachelor",
+            "ge":"Graduated + Especializated",
+            "m":"Master"
+          }
+        ]
       },
       {
         "factor":"Experience",
-        "help":"There is a list of available options, you have to choose the adequate option that match the previous work experience for this employee. You can choose between no experience and 15 or more years of experience"
+        "help":"There is a list of options available, you must choose one of the options that corresponds with the employee's years of experience. If this is the first job of the employee must choose the option: Without Experience. If the employee has 1 year of experience he must choose the option: 1 or more years of experience, in the same way if the employee has 2 or 3 or more years of experience."
       },
       {
         "factor":"Management",
