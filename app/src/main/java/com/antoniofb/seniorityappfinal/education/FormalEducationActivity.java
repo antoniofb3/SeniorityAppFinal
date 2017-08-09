@@ -34,7 +34,7 @@ public class FormalEducationActivity extends AppCompatActivity {
     private Intent intent;
     private int[] educationScores = {1,2,3,5,6};
     private int checkedId = R.drawable.checked_icon;
-    private int positionChosen;
+    private int positionChosen, size=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +42,7 @@ public class FormalEducationActivity extends AppCompatActivity {
         setContentView(R.layout.activity_formal_education);
         setBarOptions();
         setupGUI();
+        //fillFactorsList();
         showEducationList();
     }
 
@@ -92,6 +93,7 @@ public class FormalEducationActivity extends AppCompatActivity {
         lvEducationOptions.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+                /*
                 if (position == positionChosen){
                     //con la posicion escogida yo puedo decir en q fila va hacer visible el check cuando cargue el activity
                     positionChosen = position;
@@ -99,6 +101,7 @@ public class FormalEducationActivity extends AppCompatActivity {
                     iv.setVisibility(view.VISIBLE);
                     //hasta aca
                 }
+                */
                 for (int i=0; i<educationOptions.length; i++){
                     if (position == i){
                         educationScore = educationScores[i] * educationPercentage;
@@ -110,5 +113,43 @@ public class FormalEducationActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    public void fillFactorsList(){
+
+        Resources resources = getResources();
+        InputStream inputStream = resources.openRawResource(R.raw.factors);
+        Scanner scanner = new Scanner(inputStream);
+        StringBuilder stringBuilder = new StringBuilder();
+        while (scanner.hasNextLine()){
+            stringBuilder.append(scanner.nextLine());
+        }
+        parseJson(stringBuilder.toString());
+    }
+
+    private void parseJson(String s) {
+        //StringBuilder builder = new StringBuilder();
+        try {
+            JSONObject root = new JSONObject(s);
+            JSONObject factor = root.getJSONObject("seniority");
+            JSONArray jsonFactors = factor.getJSONArray("factors");
+            size = jsonFactors.length();
+            for (int i=0; i<size; i++){
+                JSONObject jsonObject = jsonFactors.getJSONObject(i);
+                if (jsonObject.getString("factor") == "Formal Education"){
+
+                    JSONArray jsonEducationOptions = jsonObject.getJSONArray("options");
+                    educationOptions = new String[jsonEducationOptions.length()];
+                    for (int j=0; j<jsonEducationOptions.length();j++){
+                        educationOptions[j] = jsonObject.getString("ite");
+                    }
+                }
+
+                //builder.append(jsonObject.getString("factor"));
+                //educationOptions[i] = jsonObject.getString("factor"); //builder.toString();
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
     }
 }
