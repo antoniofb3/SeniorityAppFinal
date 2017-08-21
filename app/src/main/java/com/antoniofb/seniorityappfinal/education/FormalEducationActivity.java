@@ -2,6 +2,7 @@ package com.antoniofb.seniorityappfinal.education;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -35,6 +36,7 @@ public class FormalEducationActivity extends AppCompatActivity {
     private int[] educationScores = {1,2,3,5,6};
     private int checkedId = R.drawable.checked_icon;
     private int positionChosen, size=0;
+    private ImageView imageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +45,8 @@ public class FormalEducationActivity extends AppCompatActivity {
         setBarOptions();
         setupGUI();
         //fillFactorsList();
+        positionChosen = getPosition();
+        Log.d("TAG", "La posicion escogida fue: " + positionChosen + " lalala");
         showEducationList();
     }
 
@@ -94,16 +98,23 @@ public class FormalEducationActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                 /*
-                if (position == positionChosen){
-                    //con la posicion escogida yo puedo decir en q fila va hacer visible el check cuando cargue el activity
-                    positionChosen = position;
-                    ImageView iv = (ImageView) findViewById(R.id.checkedEducationIcon);
-                    iv.setVisibility(view.VISIBLE);
-                    //hasta aca
+                if (positionChosen == position) {
+                    if (lvEducationOptions.getChildAt(positionChosen) != null) {
+                        view = lvEducationOptions.getChildAt(positionChosen);
+                        imageView = (ImageView) view.findViewById(R.id.checkedEducationIcon);
+                        imageView.setVisibility(view.VISIBLE);
+                        //customListAdapterFormalEducation.notifyDataSetChanged();
+                        Log.d("TAG", "Contenido del listview en la posicion: " + imageView + " lalala");
+                    }
                 }
                 */
+
                 for (int i=0; i<educationOptions.length; i++){
                     if (position == i){
+                        savePosition(position);
+                        //this imageview is to make appear the checked in the line chosen
+                        imageView = (ImageView) view.findViewById(R.id.checkedEducationIcon);
+                        imageView.setVisibility(view.VISIBLE);
                         educationScore = educationScores[i] * educationPercentage;
                         intent.putExtra("FEON", educationScore);
                         intent.putExtra("FEO", educationOptions[i] );
@@ -113,6 +124,19 @@ public class FormalEducationActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    public void savePosition(int position){
+        SharedPreferences sharedPref = getSharedPreferences("PositionChosen", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPref.edit();
+        editor.putInt("position", position);
+        editor.apply();
+    }
+
+    public int getPosition(){
+        SharedPreferences sharedPref = getSharedPreferences("PositionChosen", MODE_PRIVATE);
+        int position = sharedPref.getInt("position", 0);
+        return position;
     }
 
     public void fillFactorsList(){
