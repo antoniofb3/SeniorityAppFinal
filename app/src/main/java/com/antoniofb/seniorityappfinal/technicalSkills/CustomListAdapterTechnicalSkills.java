@@ -5,6 +5,7 @@ package com.antoniofb.seniorityappfinal.technicalSkills;
  */
 
 import android.app.Activity;
+import android.content.SharedPreferences;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -38,7 +39,17 @@ public class CustomListAdapterTechnicalSkills extends ArrayAdapter<String> {
 
         txtTitle.setText(technicalSkillsOptions[position]);
         imageView.setImageResource(checkedId);
+        int pos = getPos();
+        if (position == pos){
+            imageView.setVisibility(view.VISIBLE);
+        }
         return rowView;
 
     };
+
+    public int getPos(){
+        SharedPreferences sharedPref = context.getSharedPreferences("TSOptions", context.MODE_PRIVATE);
+        int position = sharedPref.getInt("selected_position", -1);
+        return position;
+    }
 }

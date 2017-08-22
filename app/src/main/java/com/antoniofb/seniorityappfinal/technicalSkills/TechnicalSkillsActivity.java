@@ -2,6 +2,7 @@ package com.antoniofb.seniorityappfinal.technicalSkills;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -31,7 +32,7 @@ public class TechnicalSkillsActivity extends AppCompatActivity {
     private int skillsScore = 1, skillsPercentage = 20;
     private Intent intent;
     private int[] technicalSkillsScores = {1,2,3,4,5,6,7,8,9};
-    private int checkedId;
+    private int checkedId = R.drawable.checked_icon;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -87,6 +88,7 @@ public class TechnicalSkillsActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 for (int i=0; i<technicalSkillsOptions.length; i++){
                     if (position == i){
+                        savePosition(position);
                         skillsScore = technicalSkillsScores[i] * skillsPercentage;
                         intent.putExtra("TSON", skillsScore);
                         intent.putExtra("TSO", technicalSkillsOptions[i] );
@@ -96,5 +98,12 @@ public class TechnicalSkillsActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    public void savePosition(int position){
+        SharedPreferences sharedPref = getSharedPreferences("TSOptions", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPref.edit();
+        editor.putInt("selected_position", position);
+        editor.apply();
     }
 }
