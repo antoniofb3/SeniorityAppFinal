@@ -2,6 +2,7 @@ package com.antoniofb.seniorityappfinal.management;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -30,7 +31,7 @@ public class ManagementActivity extends AppCompatActivity {
     private int managementScore = 0, managementPercentage = 20;
     private Intent intent;
     private int[] managementScores = {0,1,2,3,4,5,6,7,8,9,10};
-    private int arrowId;// = R.drawable.arrow_icon;
+    private int checkedId = R.drawable.checked_icon;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,7 +78,7 @@ public class ManagementActivity extends AppCompatActivity {
     }
 
     public void showManagementList(){
-        CustomListAdapterManagement customListAdapterManagement = new CustomListAdapterManagement(this, managementOptions, arrowId);
+        CustomListAdapterManagement customListAdapterManagement = new CustomListAdapterManagement(this, managementOptions, checkedId);
         lvManagement = (ListView) findViewById(R.id.lvManagementList);
         lvManagement.setAdapter(customListAdapterManagement);
         intent = new Intent(this, FactorsActivity.class);
@@ -86,6 +87,7 @@ public class ManagementActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 for (int i=0; i<managementOptions.length; i++){
                     if (position == i){
+                        savePosition(position);
                         managementScore = managementScores[i] * managementPercentage;
                         intent.putExtra("MON", managementScore);
                         intent.putExtra("MO", managementOptions[i] );
@@ -95,5 +97,12 @@ public class ManagementActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    public void savePosition(int position){
+        SharedPreferences sharedPref = getSharedPreferences("MOptions", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPref.edit();
+        editor.putInt("selected_position", position);
+        editor.apply();
     }
 }
