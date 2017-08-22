@@ -5,6 +5,7 @@ package com.antoniofb.seniorityappfinal.communication;
  */
 
 import android.app.Activity;
+import android.content.SharedPreferences;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,7 +19,6 @@ public class CustomListAdapterCommunication extends ArrayAdapter<String> {
 
     private final Activity context;
     private final String[] communicationOptions;
-    //private final Integer[] imagesIds;
     private final int checkedId;
 
     public CustomListAdapterCommunication(Activity context, String[] communicationOptions, int checkedId) {
@@ -27,7 +27,6 @@ public class CustomListAdapterCommunication extends ArrayAdapter<String> {
 
         this.context = context;
         this.communicationOptions = communicationOptions;
-        //this.imagesIds = imagesIds;
         this.checkedId = checkedId;
     }
 
@@ -40,7 +39,17 @@ public class CustomListAdapterCommunication extends ArrayAdapter<String> {
 
         txtTitle.setText(communicationOptions[position]);
         imageView.setImageResource(checkedId);
+        int pos = getPos();
+        if (position == pos){
+            imageView.setVisibility(view.VISIBLE);
+        }
         return rowView;
 
     };
+
+    public int getPos(){
+        SharedPreferences sharedPref = context.getSharedPreferences("COptions", context.MODE_PRIVATE);
+        int position = sharedPref.getInt("selected_position", -1);
+        return position;
+    }
 }

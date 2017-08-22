@@ -2,6 +2,7 @@ package com.antoniofb.seniorityappfinal.communication;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -24,7 +25,7 @@ public class CommunicationActivity extends AppCompatActivity {
     private int communicationScore = 0, communicationPercentage = 15;
     private Intent intent;
     private int[] communicationScores = {1,2,3,4,5,6,7,8,9,10};
-    private int checkedId; //= R.drawable.checked_icon;
+    private int checkedId = R.drawable.checked_icon;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,6 +81,7 @@ public class CommunicationActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 for (int i=0; i<communicationOptions.length; i++){
                     if (position == i){
+                        savePosition(position);
                         communicationScore = communicationScores[i] * communicationPercentage;
                         intent.putExtra("CON", communicationScore);
                         intent.putExtra("CO", communicationOptions[i] );
@@ -89,5 +91,12 @@ public class CommunicationActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    public void savePosition(int position){
+        SharedPreferences sharedPref = getSharedPreferences("COptions", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPref.edit();
+        editor.putInt("selected_position", position);
+        editor.apply();
     }
 }
