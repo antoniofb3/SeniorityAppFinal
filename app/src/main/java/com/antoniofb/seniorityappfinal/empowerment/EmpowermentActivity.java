@@ -2,6 +2,7 @@ package com.antoniofb.seniorityappfinal.empowerment;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -24,7 +25,7 @@ public class EmpowermentActivity extends AppCompatActivity {
     private int empowermentScore = 0, empowermentPercentage = 10;
     private Intent intent;
     private int[] empowermentScores = {0,1,2,3,4,5,6,7,8,9};
-    private int checkedId;
+    private int checkedId = R.drawable.checked_icon;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,6 +81,7 @@ public class EmpowermentActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 for (int i=0; i<empowermentOptions.length; i++){
                     if (position == i){
+                        savePosition(position);
                         empowermentScore = empowermentScores[i] * empowermentPercentage;
                         intent.putExtra("EON", empowermentScore);
                         intent.putExtra("EO", empowermentOptions[i] );
@@ -89,5 +91,12 @@ public class EmpowermentActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    public void savePosition(int position){
+        SharedPreferences sharedPref = getSharedPreferences("EOptions", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPref.edit();
+        editor.putInt("selected_position", position);
+        editor.apply();
     }
 }
