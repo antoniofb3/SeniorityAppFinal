@@ -48,8 +48,8 @@ public class CustomListAdapterFormalEducation extends ArrayAdapter<String> {
     };
 
     public int getPos(){
-        SharedPreferences sharedPref = context.getSharedPreferences("PositionChosen", context.MODE_PRIVATE);
-        int position = sharedPref.getInt("position", 0);
+        SharedPreferences sharedPref = context.getSharedPreferences("PCFEOptions", context.MODE_PRIVATE);
+        int position = sharedPref.getInt("selected_position", 0);
         return position;
     }
 }

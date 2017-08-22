@@ -35,7 +35,7 @@ public class FormalEducationActivity extends AppCompatActivity {
     private Intent intent;
     private int[] educationScores = {1,2,3,5,6};
     private int checkedId = R.drawable.checked_icon;
-    private int positionChosen, size=0;
+    private int size=0;
     private ImageView imageView;
 
     @Override
@@ -45,8 +45,6 @@ public class FormalEducationActivity extends AppCompatActivity {
         setBarOptions();
         setupGUI();
         //fillFactorsList();
-        positionChosen = getPosition();
-        //Log.d("TAG", "La posicion escogida fue: " + positionChosen + " lalala");
         showEducationList();
     }
 
@@ -97,29 +95,9 @@ public class FormalEducationActivity extends AppCompatActivity {
         lvEducationOptions.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-                /*
-                //esto seria para que cargue la imagen de la fila previamente seleccionada
-                view = lvEducationOptions.getChildAt(positionChosen);
-                imageView = (ImageView) view.findViewById(R.id.checkedEducationIcon);
-                imageView.setVisibility(view.VISIBLE);
-
-                if (positionChosen == position) {
-                    if (lvEducationOptions.getChildAt(positionChosen) != null) {
-                        view = lvEducationOptions.getChildAt(positionChosen);
-                        imageView = (ImageView) view.findViewById(R.id.checkedEducationIcon);
-                        imageView.setVisibility(view.VISIBLE);
-                        //customListAdapterFormalEducation.notifyDataSetChanged();
-                        Log.d("TAG", "Contenido del listview en la posicion: " + imageView + " lalala");
-                    }
-                }
-                */
-
                 for (int i=0; i<educationOptions.length; i++){
                     if (position == i){
                         savePosition(position);
-                        //this imageview is to make appear the checked in the line chosen
-                        //imageView = (ImageView) view.findViewById(R.id.checkedEducationIcon);
-                        //imageView.setVisibility(view.VISIBLE);
                         educationScore = educationScores[i] * educationPercentage;
                         intent.putExtra("FEON", educationScore);
                         intent.putExtra("FEO", educationOptions[i] );
@@ -132,16 +110,10 @@ public class FormalEducationActivity extends AppCompatActivity {
     }
 
     public void savePosition(int position){
-        SharedPreferences sharedPref = getSharedPreferences("PositionChosen", MODE_PRIVATE);
+        SharedPreferences sharedPref = getSharedPreferences("PCFEOptions", MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPref.edit();
-        editor.putInt("position", position);
+        editor.putInt("selected_position", position);
         editor.apply();
-    }
-
-    public int getPosition(){
-        SharedPreferences sharedPref = getSharedPreferences("PositionChosen", MODE_PRIVATE);
-        int position = sharedPref.getInt("position", 0);
-        return position;
     }
 
     public void fillFactorsList(){

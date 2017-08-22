@@ -2,6 +2,7 @@ package com.antoniofb.seniorityappfinal.experience;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -27,7 +28,7 @@ public class ExperienceActivity extends AppCompatActivity {
     private int experienceScore = 0, experiencePercentage = 20;
     private Intent intent;
     private int[] experienceScores = {0,1,2,3,4,5,6,7,8,9,10};
-    private int arrowId;// = R.drawable.arrow_icon;
+    private int checkedId = R.drawable.checked_icon;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,7 +80,7 @@ public class ExperienceActivity extends AppCompatActivity {
     }
 
     public void showExperienceList(){
-        CustomListAdapterWorkExperience customListAdapterWorkExperience = new CustomListAdapterWorkExperience(this,workExperienceOptions, arrowId );
+        CustomListAdapterWorkExperience customListAdapterWorkExperience = new CustomListAdapterWorkExperience(this,workExperienceOptions, checkedId );
         lvExperience.setAdapter(customListAdapterWorkExperience);
         intent = new Intent(this, FactorsActivity.class);
         lvExperience.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -87,6 +88,7 @@ public class ExperienceActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 for (int i=0; i<workExperienceOptions.length; i++){
                     if (position == i){
+                        savePosition(position);
                         experienceScore = experienceScores[i] * experiencePercentage;
                         intent.putExtra("PEON", experienceScore );
                         intent.putExtra("PEO", workExperienceOptions[i] );
@@ -96,5 +98,12 @@ public class ExperienceActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    public void savePosition(int position){
+        SharedPreferences sharedPref = getSharedPreferences("WEOptions", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPref.edit();
+        editor.putInt("selected_position", position);
+        editor.apply();
     }
 }
