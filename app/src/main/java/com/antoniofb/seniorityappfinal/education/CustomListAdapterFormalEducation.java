@@ -5,6 +5,7 @@ package com.antoniofb.seniorityappfinal.education;
  */
 
 import android.app.Activity;
+import android.content.SharedPreferences;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,7 +19,6 @@ public class CustomListAdapterFormalEducation extends ArrayAdapter<String> {
 
     private final Activity context;
     private final String[] educationOptions;
-    //private final Integer[] imagesIds;
     private final int checkedId;
 
     public CustomListAdapterFormalEducation(Activity context, String[] educationOptions, int checkedId) {
@@ -27,7 +27,6 @@ public class CustomListAdapterFormalEducation extends ArrayAdapter<String> {
 
         this.context = context;
         this.educationOptions = educationOptions;
-        //this.imagesIds = imagesIds;
         this.checkedId = checkedId;
     }
 
@@ -36,13 +35,21 @@ public class CustomListAdapterFormalEducation extends ArrayAdapter<String> {
         View rowView=inflater.inflate(R.layout.formal_education_list, null,true);
 
         TextView txtTitle = (TextView) rowView.findViewById(R.id.formalEducationOption);
-        //ImageView imageView = (ImageView) rowView.findViewById(R.id.checkedIcon);
         ImageView imageView2 = (ImageView) rowView.findViewById(R.id.checkedEducationIcon);
 
         txtTitle.setText(educationOptions[position]);
-        //imageView.setImageResource(imagesIds[position]);
         imageView2.setImageResource(checkedId);
+        int pos = getPos();
+        if (position == pos){
+            imageView2.setVisibility(view.VISIBLE);
+        }
         return rowView;
 
     };
+
+    public int getPos(){
+        SharedPreferences sharedPref = context.getSharedPreferences("PositionChosen", context.MODE_PRIVATE);
+        int position = sharedPref.getInt("position", 0);
+        return position;
+    }
 }

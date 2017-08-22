@@ -46,7 +46,7 @@ public class FormalEducationActivity extends AppCompatActivity {
         setupGUI();
         //fillFactorsList();
         positionChosen = getPosition();
-        Log.d("TAG", "La posicion escogida fue: " + positionChosen + " lalala");
+        //Log.d("TAG", "La posicion escogida fue: " + positionChosen + " lalala");
         showEducationList();
     }
 
@@ -98,6 +98,11 @@ public class FormalEducationActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                 /*
+                //esto seria para que cargue la imagen de la fila previamente seleccionada
+                view = lvEducationOptions.getChildAt(positionChosen);
+                imageView = (ImageView) view.findViewById(R.id.checkedEducationIcon);
+                imageView.setVisibility(view.VISIBLE);
+
                 if (positionChosen == position) {
                     if (lvEducationOptions.getChildAt(positionChosen) != null) {
                         view = lvEducationOptions.getChildAt(positionChosen);
@@ -113,8 +118,8 @@ public class FormalEducationActivity extends AppCompatActivity {
                     if (position == i){
                         savePosition(position);
                         //this imageview is to make appear the checked in the line chosen
-                        imageView = (ImageView) view.findViewById(R.id.checkedEducationIcon);
-                        imageView.setVisibility(view.VISIBLE);
+                        //imageView = (ImageView) view.findViewById(R.id.checkedEducationIcon);
+                        //imageView.setVisibility(view.VISIBLE);
                         educationScore = educationScores[i] * educationPercentage;
                         intent.putExtra("FEON", educationScore);
                         intent.putExtra("FEO", educationOptions[i] );
