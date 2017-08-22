@@ -49,7 +49,7 @@ public class CustomListAdapterManagement extends ArrayAdapter<String> {
 
     public int getPos(){
         SharedPreferences sharedPref = context.getSharedPreferences("MOptions", context.MODE_PRIVATE);
-        int position = sharedPref.getInt("selected_position", 0);
+        int position = sharedPref.getInt("selected_position", -1);
         return position;
     }
 }
